@@ -754,238 +754,210 @@ $(a-b)>-d$&noeud attractif \\ \hline
 
 \section{Trajectoires p{é}riodiques et cycles limites}
 
-A partir des tableaux de la section~8.2, on peut tirer les
-observations suivantes.
-\begin{enumerate}
-\item Pour un syst{è}me lin{é}aire de dimension deux, les équilibres {\em
-attractifs} sont soit un noeud  soit un foyer, soit enfin une droite d'{é}quilibres non isol{é}s. Dans
-chacun de ces cas, le bassin d'attraction est le plan de phase tout entier.
-\item Lorsque l'{é}quilibre est r{é}pulsif, les trajectoires du
-syst{è}me divergent lorsque le temps $t$ tend vers l'infini.
-\item Lorsque l'{é}quilibre d'un syst{è}me lin{é}aire est un centre, toutes
-les trajectoires du syst{è}me sont p{é}riodiques et le rayon des 
-trajectoires d{é}pend des conditions initiales.
-Un syst{è}me lin{é}aire pr{é}sentant des trajectoires p{é}riodiques
-est structurellement instable, et donc la moindre perturbation du syst{è}me
-peut faire dispara\^ \i tre ces trajectoires p{é}riodiques. 
-\end{enumerate}
+\section{periodic trajectories and limit cycles}
 
-Aucune de ces observations n'est v{é}rifi{é}e g{é}n{é}riquement dans le cas de
-syst{è}mes non lin{é}aires. En effet, les deux premi{è}res concernent un
-comportement {\em global} des trajectoires, et nous avons vu que ce n'est
-que localement, dans le voisinage d'un {é}quilibre hyperbolique, que les
-trajectoires d'un syst{è}me non lin{é}aire se comportent comme celles de
-l'approximation lin{é}aire de ce syst{è}me. L'objet de cette section est de
-montrer que pour des syst{è}mes non lin{é}aires, il existe d'autres
-ensembles attractifs et notamment des trajectoires p{é}riodiques.
- On montrera en outre que ces ensembles
-attractifs sont
-structurellement stables. Ceci est une propri{é}t{é} tr{è}s intéressante des 
-syst{è}mes non lin{é}aires qui est utilis{é}e pour la conception de circuits oscillateurs.
-\begin{exemple} {\bf  \em Circuit RLC {à} diode tunnel} 
+From the tables of the sections~8.2, we can make the following observations.
+\begin{enumerate}
+\item For a linear system of dimension 2, the {\em attractive} equilibriums either are a node or a spiral or a line of uninsulated equilibriums. in
+each of these cases, the basin of attraction is the entire phase map.
+\item When the equilibrium is repulsive, the system trajectories diverge when the time $t$ tend to infinity.
+\item When the equilibrium of a linear system is a center, all the system trajectories are periodic and the radius pf the trajectories depend on the initial conditions.
+A linear system with periodi trajectories is structurally unstable, and thus any perturbation of the system can remove these periodic trajectories.
+\end{enumerate}
+None of this observations is generically verified in the case of nonlinear systems. Indeed, the first two concern a {\em global} behaviour of the trajectories, and we have seen that this is only locally, in the neighborhood of a hyperbolic equilibrium, that
+trajectories of a nonlinear system behave like those of the linear approximation of the system.
+
+The purpose of this section is to show that, for non linear systems, there are other attractive sets, and in particular periodic trajectories.
+Futhermore, we will show that these attractive sets are structurally stable. This is a very interesting property of the linear systems wich is used for the conception of oscillator circuits.
+
+\begin{exemple} {\bf  \em Diode tunnel RLC circuits} 
 
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=25mm]{osc} 
-   \caption{Oscillateur {à} diode tunnel}
+   \caption{Tunnel diode oscillator}
    \label{fig:osc}
 \end{figure}
 
-La figure~\ref{fig:osc} repr{é}sente un oscillateur {à} diode tunnel. C'est  un circuit
-{é}lectrique RLC comprenant des dip{\^o}les lin{é}aires (une source de tension constante
-$E$, une r{é}sistance linéaire $R$ variable, une inductance linéaire
-$L= 1H$, une capacit{é} linéaire $C=1F$) ainsi qu'une r{é}sistance non lin{é}aire (diode tunnel)
-dont la caract{é}ristique courant-tension $i=h(v)=2v^3-6v^2+5v$ a l'allure de la courbe
-repr{é}sent{é}e {à} la figure~\ref{fig:diode}. L'entr{é}e $u$ de ce syst{è}me est la
-r{é}sistance variable $R$.
+The figure~\ref{fig:osc} shows a tunnel diode oscilator. This is an electric circuit with linear dipoles (a constant voltage source $E$, a variable linear resistance $R$, a linear inductance $L= 1H$, a linear capacitor $C=1F$) and a non linear resistance (tunnel diode)
+whose current-voltage characteristic $i=h(v)=2v^3-6v^2+5v$ has the shape of the curve shown in figure~\ref{fig:diode}. The input of this system is the variable resistence $R$.
+
 \begin{figure}[htbp] 
    \centering
    \includegraphics[width=10cm]{caradio} 
-   \caption{Caract{é}ristique courant-tension de la diode tunnel}
+   \caption{Tunnel diode current-voltage characteristic.}
    \label{fig:caradio}
 \end{figure}
-Comme nous l'avons vu au chapitre~3, les  variables d'{é}tat du syst{è}me sont le courant
-$x_1=i$  dans l'inductance et  la tension 
-$x_2=v$ aux bornes de la capacit{é}.  On obtient les
-{é}quations d'{é}tat suivantes~:
+As we have seen in chapter~3, the state variables of the system are the current $x_1=i$ in the inductance and the voltage $x_2=v$ at the terminals of the capacitor.
+One obtains the following state equations~:
+
 \eqnn
 \dot x_1&=&-u x_1-x_2 +E\\
 \dot x_2&=&x_1-h(x_2),
 \eeqnn
-et les {é}quilibres possibles sont caract{é}ris{é}s par
+and the possible equilibriums are characterized by
 \eqnn
 \bar x_1&=&\frac{E -\bar x_2}{\bar u}\\
 \bar x_1&=&h(\bar x_2).
 \eeqnn
 
-En repr{é}sentant dans le plan de phase les graphes des courbes $
-\bar x_1=(E -\bar x_2)/\bar u$ et $\bar x_1=h(\bar x_2)$, on constate que, pour une
-diode de caract{é}ristique donn{é}e, deux configurations sont possibles selon les valeurs
-respectives de
-$\bar u$ et $E$. Si la pente de la droite ($-1/\bar u$) est
-suffisamment raide, il n'y aura qu'un seul point d'{é}quilibre
-(figure~\ref{fig:eqdiode}.a).  Par contre, si cette
-pente est inf{é}rieure {à} celle de la tangente au point d'inflexion de la courbe, il y
-aura un, deux ou trois {é}quilibres possibles suivant la valeur de $E$
+By showing in the phase plane the graphs of the curves $
+\bar x_1=(E -\bar x_2)/\bar u$ et $\bar x_1=h(\bar x_2)$, one notes that, for a given characteristic of diode,
+two configurations are possible according to the respective values of
+
+$\bar u$ and $E$. If the line ($-1/\bar u$) is steep enough, there will be only one equilibrium point
+(figure~\ref{fig:eqdiode}.a).  On the other side, if this slope is below the one of the the tangent at the inflection point of the curve, there will be
+one, two or three possible equilibriums according to the value of $E$.
 (figure~\ref{fig:eqdiode}.b).
 \begin{figure}[htbp] 
    \centering
    \includegraphics[width=10cm]{eqdiode} 
-   \caption{Configurations d'{é}quilibres pour le circuit avec diode tunnel}
+   \caption{Equilibrium configurations for the tunnel diode circuit}
    \label{fig:eqdiode}
 \end{figure}
 
-On peut {à} nouveau {é}tudier l'allure des trajectoires au voisinage des
-{é}quilibres en calculant les valeurs propres de la matrice Jacobienne du
-syst{è}me~:
+We can study again the shape of the trajectories at the neighborhood of the equilibrium by calculating the eigenvalues of the Jacobian matrix of the system~:
 $$A=\bma{cc} -\bar u & -1\\1&-h'(\bar x_2)\ema .$$
-Le produit et la somme des valeurs propres sont donn{é}s par
+
+The product and the sum of the eigenvalues are given by
 $$ \lambda_1\lambda_2=\bar u h'(\bar x_2) +1,  \;\;\; \lambda_1+\lambda_2=-(\bar u+
 h'(\bar x_2)),$$
-et on observe que le signe des valeurs propres ne d{é}pend pas de $E$
-mais seulement des pentes respectives des deux graphes de l'une ou l'autre
-des figures~\ref{fig:eqdiode}.
 
-Examinons en d{é}tail les  {é}quilibres~: 
+and one observes that the sign of the eigenvalues doesn't depend on $E$ but only depends on the respective slopes of the two graphs of either of figures~\ref{fig:eqdiode}.
+
+Let's examine in details the equilibriums~:
+
 \begin{itemize}
-\item[{\bf a.}] Pour la figure~\ref{fig:eqdiode}.a, il n'y a qu'un seul {é}quilibre. Si celui-ci
- se
-trouve {à} gauche du maximum local de la courbe $h(x_2)$ ou {à} droite du minimum local de
-celle-ci, le produit des valeurs propres est positif, la somme est n{é}gative et
-l'{é}quilibre correspondant est donc un noeud ou un foyer attractif. 
-\item[{\bf b.} ] Toujours pour la premi{è}re figure, si l'{é}quilibre se trouve entre le maximum
-et le minimum locaux, on a $-1/\bar u < h'(\bar x_2)<0$ et le produit des valeurs propres
-est donc toujours positif. Quant {à} la somme, elle sera n{é}gative et l'{é}quilibre
-correspondant d{è}s lors attractif si $|h'(\bar x_2)|<\bar u$ (ce qui correspond {à} une
-valeur de
-$\bar u$ importante, c.{à}.d. une résistance fortement dissipative qui assure la
-stabilit{é} du circuit). Par contre, si $|h'(\bar x_2)|>\bar u$, la somme des valeurs
-propres est positive et l'{é}quilibre correspondant est répulsif.
-\item[{\bf c.}] Pour la figure~\ref{fig:eqdiode}.b,  les {é}quilibres {à} gauche du maximum local de
-$h(x_2)$ et {à} droite du minimum local sont tels que le produit des valeurs propres est
-positif et la somme des valeurs propres est n{é}gative. L'{é}quilibre correspondant est
-donc un noeud ou un foyer attractif.
-\item[{\bf d.}]  Quant {à} l'{é}quilibre {é}ventuel compris entre maximum et minimum, il v{é}rifie $h'(\bar x_2) < -1/\bar u < 0$. Le produit des
-valeurs propres est n{é}gatif et l'{é}quilibre correspondant est un col.
+
+\item[{\bf a.}] For the figure~\ref{fig:eqdiode}.a, there is only one equilibrium. If this one 
+is to the left of the local maximum of the curve $h(x_2)$ or to the right of the local minimum of this one, the product
+of the eigenvalues is positive, and thus the corresponding equilibrium is a node or a stable spiral.
+
+\item[{\bf b.} ] Always for the first figure, if the equilibrium stand between the local maximum and the local minimum, 
+we have $-1/\bar u < h'(\bar x_2)<0$ and the product of the eigenvalues
+is thus positive.
+Regarding the sum, it will be negative and the corresponding equilibrium
+will therefore be attractive if $|h'(\bar x_2)|<\bar u$ (wich corresponds to an important value of $\bar u$ ie a 
+a strongly dissipative resistance which ensures the stability of the circuit). On the other side, if $|h'(\bar x_2)|>\bar u$,
+the sum of the eigenvalues is positive and the corresponding equibibrium is repulsive.
+
+\item[{\bf c.}] Regarding the figure~\ref{fig:eqdiode}.b,, the equilibriums to the left of the local maximum of 
+$h(x_2)$ and to the left of the local minimum are such that the product of the eigenvalues is positive and the sum of the eigenvalues
+is negative. The corresponding equilibrium is either a node or a stable spiral.
+
+\item[{\bf d.}] Regarding the eventual equilibrium between the maximum and the minium, it is it verifies $h'(\bar x_2) < -1/\bar u < 0$. The product of the
+eigenvalues is negative and the corresponding equilibrium is a saddle.
+
 \end{itemize}
 
-Comme on peut le constater, l'{é}quilibre est répulsif dans diff{é}rents cas. On peut 
-alors s'interroger sur ce que deviennent les trajectoires qui s'{é}loignent de ce point
-d'{é}quilibre. Consid{é}rons les valeurs num{é}riques
-particuli{è}res suivantes~:
+As we can note, the equilibrium is repuslive in different cases. We can then question about what the trajectories moving away from this equilibrium point become.
+
+Let's consider the following particular numerical values~:
+
 \eqnn
 \bar u&=&0.5,\\
 E&=& 1.5,\\
 h(v)&=&2v^3-6v^2+5v.
 \eeqnn
-On peut v{é}rifier que pour ces valeurs
-particuli{è}res, $(\bar x_1, \bar x_2, \bar u)= (1,1,0.5)$ est le seul
-{é}quilibre du syst{è}me, et qu'il s'agit d'un {é}quilibre r{é}pulsif (cas {\bf b.}
-ci-dessus). 
 
-En simulant le syst{è}me de deux {é}quations
-diff{é}rentielles pour diff{é}rentes conditions initiales, on obtient les orbites
-illustr{é}es  
-{à} la figure~\ref{fig:diode}. Il apparaît clairement que toutes
-les orbites calcul{é}es (on peut penser que les autres se comporteraient de la m{ê}me
-mani{è}re) s'enroulent autour d'une orbite p{é}riodique. Ce syst{è}me ne
-poss{è}de donc pas d'{é}quilibre attractif, mais il existe une {\em
-orbite ferm{é}e} qui est attractive. C'est ce qu'on appelle un
-cycle limite.
+We can check that for these particular values, $(\bar x_1, \bar x_2, \bar u)= (1,1,0.5)$ is the only equilibrium of the system.
+and that it is a repulsive equilibrium (case {\bf b.} above).
+
+By simulating the system of two differential equations for different initial conditions, we obtain the orbits illustrated in figure~\ref{fig:diode}. 
+It clarly appears that all the calculated orbits (we could think that others wound behave the same way wrap around a periodical orbit.
+This system has no attractive equilibrium, but there exists a {\em closed orbit} wich is attractive.
+This is what is called a limit cycle.
+
+
 \begin{figure}[htbp] 
    \centering
    \includegraphics[width=10cm]{diode} 
-   \caption{Cycle limite pour le circuit {à} diode tunnel}
+   \caption{Limit cycle for a tunnel diode circuit}
    \label{fig:diode}
 \end{figure}
-La figure~\ref{fig:simudiodet} illustre les trajectoires ({é}tat en fonction du temps) et 
-montre bien qu'elles convergent (rapidement) vers des trajectoires p{é}riodiques dont la
-p{é}riode et l'amplitude ne d{é}pendent pas des conditions initiales.
+
+Figure~\ref{fig:simudiodet} shows the trajectories (state as function of the time) and 
+shows that they (quickly) converge toward periodic trajectories whose periode and amplitude don't depend on the initial conditions.
+
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=10cm]{diodet} 
-   \caption{Trajectoires du circuit {à} diode tunnel}
+   \caption{Trajectories of the tunnel diode circuit}
    \label{fig:simudiodet}
 \end{figure}
 
-Asymptotiquement, le syst{è}me conna\^{\i}tra  donc des oscillations   
-d'amplitude  constante, quelle que soit la valeur des conditions initiales,
-contrairement {à} ce qui se passe pour un syst{è}me lin{é}aire poss{é}dant
-un {é}quilibre de type centre. En fait, c'est exactement ce que l'on cherche {à}
-obtenir lorsque l'on construit un oscillateur : des oscillations d'amplitude
-constante ind{é}pendamment des conditions initiales, qu'on ne peut donc obtenir
-qu'avec un syst{è}me non lin{é}aire. Enfin, on peut aussi montrer que ce cycle limite est
-structurellement stable, ce qui est {é}galement une propri{é}t{é} int{é}ressante pour la
-conception d'un oscillateur. 
+asymptotically, therefore, the system will undergo amplitude oscillations
+constant, whatever the value of the initial conditions, contrary to what happens for a linear system with a center type of equilibrium.
+
+In fact, this is exactly what is sought when building an oscillator: Oscillations of constant amplitude 
+regardless of initial conditions, we can not get that with a non-linear system. Finally, it is
+also show that the limit cycle is structurally stable, which is also
+an interesting property for the design of an oscillator.
 \qed
 \end{exemple}
 
-Nous formalisons ci-dessous quelques-unes des notions qui viennent d'{ê}tre d{é}crites dans l'exemple précédent.
-Consid{é}rons un syst{è}me plan $$\dot x=f(x,\bar u)$$ avec entrée constante $\bar u$ et notons $x(t,x_0,\bar u)$ la solution au temps $t$ avec $x(0)=x_0$.
+We formalize below some of the concepts that have just been
+described in the preceding example. Consider a plannar system $$\dot x=f(x,\bar u)$$ 
+with constant input $\bar u$ and let's note $x(t,x_0,\bar u)$ the solution at time $t$ with $x(0)=x_0$.
 
-\begin{definition}{\bf\em Point limite}
+\begin{definition}{\bf\em Limit point}
 
-Le point $z$ est un {\em point limite de $y$} pour le syst{è}me dynamique  
-soumis {à} une
-entr{é}e constante $\bar u$  s'il existe une suite $\{t_n\}$ dans
-$\RR$ telle que $t_n \rightarrow \infty$ lorsque $n \rightarrow \infty$ et
+The point $z$ is a {\em limit point of $y$} for the dynamical system submitted to a constant input $\bar u$
+if there exists a sequence $\{t_n\}$ in
+$\RR$ such that $t_n \rightarrow \infty$ when $n \rightarrow \infty$ and
 $\lim_{n\rightarrow \infty} x(t_n,y,\bar u)=z$.\qed
 \end{definition}
 
-Conform{é}ment {à} cette d{é}finition, un {é}quilibre atttractif est donc un
-point limite de tout point dans son bassin d'attraction. Mais la
-notion de point limite est plus g{é}n{é}rale comme nous le
-constaterons ci-dessous.
+According to this definition, a atttractif equibrium is therefore an endpoint
+from any point in its basin of attraction. But the notion of limit point is more
+general as we will see below.
 
-\begin{definition}{\bf \em Cycle limite}
+\begin{definition}{\bf \em Limit cycle}
 
-{\em Un {\em cycle limite} est une orbite ferm{é}e $\gamma$ telle qu'un point de $\gamma$ est
-un point limite d'un autre point du plan de phase n'appartenant pas
- {à} $\gamma$.}\cqfd\end{definition}
-   
-Cette d{é}finition montre que lorsqu'une orbite ferm{é}e est un cycle
-limite, tout point de cette orbite est un point limite, et donc que la
-trajectoire du syst{è}me s'approchera de plus en plus de chacun des
-points de cette orbite ferm{é}e, {\em {à} des instants
-  d{é}termin{é}s}.
+{\em A {\em limit cycle} is a closed orbit $\gamma$ such that a point of $\gamma$ is a limit point of another pojnt of the phase plane not in 
+$\gamma$.}\cqfd\end{definition}
 
-Nous pouvons {é}noncer maintenant quelques r{é}sultats permettant d'{é}tablir l'existence
-de trajectoires p{é}riodiques et de cycles limites. Ces r{é}sultats ne sont valables que
-pour les syst{è}mes plans (alors qu'il existe également des cycles limites
-pour des syst{è}mes d'ordre sup{é}rieur). La raison en est que les d{é}monstrations de ces
-r{é}sultats reposent sur le fait qu'en dimension 2, une orbite ferm{é}e dans le plan de
-phase divise ce plan en une r{é}gion int{é}rieure {à} l'orbite et une r{é}gion
-ext{é}rieure, ce qui n'est bien s{\^u}r plus vrai dans un espace de phase de dimension
-sup{é}rieure à 2.
-Le premier r{é}sultat est une condition {\em suffisante} de {\em non-existence} de
-trajectoire p{é}riodique (et donc de cycle limite).
+This definition shows that when closed orbit is a limit cycle, while
+point of the orbit is a boundary point, and thus the trajectory of the system
+will approach more and more each point of the closed orbit, to
+instants determined.
+We can now state some results to establish the existence
+periodic trajectories and limit cycles. These results are only valid
+for plannar systems (while there are also limitations cycles
+systems of higher order). The reason is that these demonstrations
+results are based on the fact that in two dimension, a closed orbit in the plane of
+stage divides the plan into an inner region in the orbit and an outer region,
+This is of course true in a phase space dimension greater than
+2. The first result is a sufficient condition for non-existence path
+periodic (and therefore limit cycle).
 
 \begin{theoreme} {\bf \em Bendixson Dulac, 1901 et 1933} 
 
-{\em
-Soit $D$ un domaine simplement connexe\footnote{un domaine simplement connexe dans  $\RR^2$ est un
-domaine dont la fronti{è}re peut {ê}tre obtenue comme d{é}formation continue d'un cercle.}
-dans $\RR^2$.  Si $${\mbox div}f \triangleq \frac{\partial f_1}{\partial
-x_1}+\frac{\partial f_2}{\partial x_2}$$ est non identiquement nulle dans un sous-domaine
-de $D$ et ne change pas de signe dans ce sous-domaine, alors $D$ ne contient pas d'orbite
-ferm{é}e.}\cqfd\end{theoreme}
+{\em Let $D$ be a simply connex domain \footnote{a connex domain in  $\RR^2$ whose frontier can be obtained by deformation of a circle.}
+If Si $${\mbox div}f \triangleq \frac{\partial f_1}{\partial
+x_1}+\frac{\partial f_2}{\partial x_2}$$ is non identically zero in a subdomain of $D$ and does not change sign in this subdomain,
+then $D$ does not contain any closed orbit.}\cqfd\end{theoreme}
 
-Rappelons que la divergence  ${\mbox div}f$ décrit l'éloignement (${\mbox div}f >0$) ou le rapprochement (${\mbox div}f <0$) issues de $\dot{x}=f(x)$.
-Ce théorème se prouve simplement par contraposition: supposons qu'il existe une trajectoire fermée $\gamma$ dans le domaine, dont l'intérieur est $D_{\gamma} \subseteq D$. Alors 
-l'intégrale de la divergence à l'intérieur de $\gamma$, $\int_{D_\gamma}  {\mbox div}f$ est égale par le théorème de Green-Stokes à l'intégrale de flux à travers la frontière $\gamma$ $\int_\gamma \langle f, n \rangle$, où $\langle.,.\rangle$ est le produit scalaire et $n$ est le vecteur normal unitaire sortant à $\gamma$. Cette dernière intégrale est nulle, puisque $f$ est tangent en tout point de la trajectoire $\gamma$. Il en résulte que la divergence ${\mbox div}f$ ne peut être partout négative ou partout positive dans $D_{\gamma}$.
+Let's recall that that the divergence ${\mbox div}f$ describes the remoteness (${\mbox div}f >0$) or the rapprochement (${\mbox div}f <0$) from $\dot{x}=f(x)$.
+This theorem is proved simply by contradiction: suppose that there exists a closed path $\gamma$ in the domain, whose interior is $D_{\gamma} \subseteq D$.
+Thus the integral of the divergence inside of $\gamma$, $\int_{D_\gamma}  {\mbox div}f$ is equal by the Green-Stokes theorm to the integral
+of the flux through the frontier $\gamma$ $\int_\gamma \langle f, n \rangle$, where $\langle.,.\rangle$
+is the scalar product and $n$ is the unitary normal vector exiting from $\gamma$.
+This integral is zero, since $f$ is tangent everywhere in every point of the trajectory $\gamma$. 
 
-Le deuxi{è}me r{é}sultat permet, lui, de mettre en {é}vidence l'existence d'un cycle
-limite.  
+It follows that the divergence ${\mbox div}f$ can not be negative everywhere or positive everywhere in $D_{\gamma}$.
+The second result allows to bring out the existence of a limit cycle.
 
 \begin{theoreme} {\bf \em Poincar{é}-Bendixson, 1901}
 
-Si $E$ est un sous ensemble fermé et borné de $\RR^2$, invariant  pour le système
-$\dot x= f(x,\bar u)$, et si $\gamma$ est une orbite qui d{é}marre dans $E$, alors~:
+If $E$ is a closed and bounded subset of $\RR^2$, invariant for the system $\dot x= f(x,\bar u)$, and if $\gamma$ is an orbit
+starting in $E$, then~:
+
 \begin{itemize}
-\item[i)] Si $E$ ne contient pas de point d'{é}quilibre, alors $\gamma$ est une orbite
-p{é}riodique ou converge vers un cycle limite.
-\item[ii)]Si $E$ ne contient pas d'orbite p{é}riodique mais contient un point d'{é}quilibre
-unique, cet {é}quilibre est globalement attractif dans $E$. \qed
+\item[i)] If $E* doen't contain any equilibrium point, then $\gamma$ either is a periodic orbit or converge toward a limit cycle.
+
+\item[ii)] If $E$ doesn't contain any periodic orbit but contains a unique equilibrium point, this equilibrium is globally attractive in $E$.\qed
+
 \end{itemize}
 \end{theoreme}
 
