@@ -752,9 +752,7 @@ $(a-b)>-d$&noeud attractif \\ \hline
 \label{tab2esp}
 \end{table}
 
-\section{Trajectoires p{é}riodiques et cycles limites}
-
-\section{periodic trajectories and limit cycles}
+\section{Periodic trajectories and limit cycles}
 
 From the tables of the sections~8.2, we can make the following observations.
 \begin{enumerate}
@@ -962,56 +960,54 @@ starting in $E$, then~:
 \end{theoreme}
 
 
-Ce th{é}or{è}me peut {ê}tre utilis{é} effectivement pour d{é}montrer l'existence d'un
-cycle limite. Pour ce faire, on cherche d'abord un ensemble ferm{é} born{é} et invariant.
-Pour v{é}rifier que l'ensemble est bien invariant, on montre que sur la fronti{è}re de cet
-ensemble, le champ de vecteurs pointe vers l'int{é}rieur. Ensuite, si on a pu exclure la
+Ensuite, si on a pu exclure la
 pr{é}sence d'{é}quilibres dans cet ensemble, celui-ci doit n{é}cessairement contenir un
 cycle limite, ou ne contenir que des trajectoires p{é}riodiques.
 
-Il est important de noter que ces deux théorèmes, contrairement à d'autres résultats de ce chapitre, sont spécifiques aux systèmes plans, et restreignent fortement les dynamiques possibles en deux dimensions: les trajectoires convergent vers un point, un cycle, ou sont non bornées. Les dimensions supérieures recèlent des comportements plus riches qui dépassent le cadre de ce cours: chaos, attracteurs étranges, etc.
+This theorem can be used to prove the existence of a limit cycle. To do this, we first seek a closed, bounded and invariant set.
+To check that the set is invariant, we show that on the border of this set, de vector field points inwards. Then, if we have been 
+able to exclude an equilibrium in this set, this one must necessarily contain a limit cycle, or contain only periodic trajectories.
+
+It is important to notice that this two theorems, unlike other results of this chapter, are specific to the plannar systems, 
+and strongly restrict the possible dynamics in two dimensions : the trajectories converge to a point, a cycle, or are unbounded.
+The higher dimensions have a richer behaviour wich exceed the purpose of this course : chaos, strange attractors, etc.
 
 \begin{exemple}{\bf \em Circuit {à} diode tunnel (suite)}
 
-Nous reprenons le circuit d{é}j{à} d{é}crit avec les m{ê}mes valeurs
- num{é}riques que
-pr{é}c{é}demment, qui conduisent {à} un {é}quilibre unique r{é}pulsif 
-$(\bar x_1, \bar
-x_2, \bar u)=(1,1,E-1)$, avec $E>1$. Prenons maintenant dans le plan de phase un cercle
-centr{é} en
-$(0,0)$ et de rayon suffisamment grand et montrons que, sur ce cercle, le champ de
-vecteurs pointe vers l'int{é}rieur. Il s'agit donc de montrer que le produit scalaire du
-champ de vecteurs et de la normale au cercle est n{é}gatif~: $PS=x_1f_1(x_1,x_2,\bar
-u)+x_2f_2(x_1,x_2,\bar u)  < 0$. Choisissons comme rayon $r=\sqrt{2}\frac{E}{E-1}$ (voir
-figure~\ref{bendiode}).
+\begin{exemple}{\bf \em Tunnel diode circuit}
+
+We consider again the circuit already described with the same numerical values than previously, which lead to a unique 
+repulsive equilibrium $(\bar x_1, \bar
+x_2, \bar u)=(1,1,E-1)$, with $E>1$. Let's now consider in the plannar phase a circle centred in $(0,0)$ and with a large enough
+radius, and let's show that, on the circle, the vector field points inwards.
+
+It is therefore to show that the scalar product of the vector field and the normal vector of the circle is negative ~: $PS=x_1f_1(x_1,x_2,\bar
+u)+x_2f_2(x_1,x_2,\bar u)  < 0$. Let's choose as a radius $r=\sqrt{2}\frac{E}{E-1}$ (see figure~\ref{bendiode}).
+
 \begin{figure}[htbp] 
    \centering
    \includegraphics[width=10cm]{bendiode} 
-   \caption{Ensemble invariant pour le circuit {à} diode tunnel}
+   \caption{Invariant set for the tunnel diode circuit}
    \label{bendiode}
 \end{figure}
-Le produit scalaire vaut $PS=-(E-1) x_1^2+E x_1-x_2h(x_2)$.
-Remarquons que la quantit{é} $-x_2h(x_2)$ est toujours strictement n{é}gative sauf en $x_2=0$. Pour $x_1
-\leq 0, PS < 0$. De m{ê}me, pour $x_1 \geq \frac{E}{E-1}, E x_1 \leq (E-1)x_1^2$ et $PS
-<0$. Il reste
-{à} {é}tudier la portion de cercle o{ù} $x_1 < \frac{E}{E-1}, x_2 > \frac{E}{E-1}.$ Un
-petit calcul permet de v{é}rifier que $|h(x_2)| > |x_2|$ et que les in{é}galit{é}s
-suivantes sont donc v{é}rifi{é}es ~:
+
+The scalar product is equal to $PS=-(E-1) x_1^2+E x_1-x_2h(x_2)$. Note that the quantity $-x_2h(x_2)$ is always nonpositive except for $x_2=0$.
+\leq 0, PS < 0$. Likewise for $x_1 \geq \frac{E}{E-1}, E x_1 \leq (E-1)x_1^2$ and $PS
+<0$. 
+
+Its remains to study the portion of the circule where $x_1 < \frac{E}{E-1}, x_2 > \frac{E}{E-1}.$ A small calculation allows
+to check that $|h(x_2)| > |x_2|$ and that the following inequalities are thus checked~:
+
 \eqnn x_2h(x_2)&>x_2^2&>\frac{E^2}{(E-1)^2}\\
 E x_1&<\frac{E^2}{E-1}&<\frac{E^2}{(E-1)^2}
 \eeqnn
-et donc $PS < 0$. Sur ce cercle de rayon $r$, le champ de vecteurs est donc rentrant. Par
-ailleurs, comme l'{é}quilibre $(1,1,E-1)$ est r{é}pulsif, on peut prendre un cercle
-suffisamment petit autour de cet {é}quilibre tel que le champ de vecteurs {é}valu{é} sur
-ce cercle pointe vers l'ext{é}rieur.  Si l'on consid{è}re maintenant le domaine form{é} de
-l'anneau  (non centr{é}) compris entre le petit cercle et le grand, il s'agit bien d'un
-ensemble invariant puisque sur la fronti{è}re de cet ensemble, le champ de vecteurs pointe
-vers l'int{é}rieur du domaine. Ce domaine ne comprenant aucun {é}quilibre, il doit donc
-contenir un cycle limite (ou ne contenir que des trajectoires
-p{é}riodiques). \qed
+
+and then $PS < 0$. On the circule of radius $r$, the vector field points thus inwards. Otherwise, given that the equilibrium
+$(1,1,E-1)$ is repulsive, we can take a small enough cicrule around this equilibrium such that the vector field evaluated
+on the circle points outwards. If we now consider that the domain formed by the ring (not centered) between the small circle 
+and the big one, it is an invariant set because on the border of this set, the vector field points inward the domain.
+Given that the domain doesn't inclure any équilibrium, it must contain a limit cycle (or contain periodic trajectories only). \qed
 \end{exemple}
-
-
 
 %Notons encore qu'il existe d'autres ensembles attractifs que des {é}quilibres %ou des
 %cycles limites. Un syst{è}me comprenant trois {é}quilibres dont deux sont des %foyers
