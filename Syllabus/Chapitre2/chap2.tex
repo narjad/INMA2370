@@ -215,136 +215,110 @@ In the equation (\ref{mo2}), $\lambda$ is expressed as :
 \eqnn
 \lambda = \bar{J}\ddot{\bar{q}} + \bar{b}(q,\bar{q}) - \bar{B}(q,\bar{q})u.
 \eeqnn
-En substituant cette expression dans (\ref{mo1}) et en utilisant (\ref{red}), on obtient :
+By substituting this expression  in  (\ref{mo1}) and using (\ref{red}), it is resulted as :
 \begin{equation} \begin{split}
 J\ddot{q} + A(q)\bar{J}\ddot{\bar{q}} &+ b(q,\phi(q)) + A(q)\bar{b}(q,\phi(q)) \\
 &= (B(q,\phi(q)) + A(q)\bar{B}(q,\phi(q)))u \label{g1}.
 \end{split} \end{equation}
-Il ne reste plus alors qu'à éliminer $\ddot {\bar q}$. Pour cela on différencie deux
-fois l'expression (\ref{red}) :
+Last step to do is the elimination of $\ddot {\bar q}$. To obtain this product, it is needed to differentiate two times the expression (\ref{red}) :
 \eqn
 \dot {\bar q} &=& A^{T}(q)\dot q \\
 \ddot {\bar q}  &=& A^{T}(q)\ddot q + \dot A^T(q)\dot q. \label{ac}
 \eeqn
-En substituant cette dernière expression (\ref{ac}) dans (\ref{g1}) et en introduisant les
-notations suivantes :
+Substituting this last expression  (\ref{ac}) in (\ref{g1}) and introducing these following notations:
 \begin{equation*} \begin{split}
 M(q) &\triangleq J + A(q)\bar{J}A^{T}(q), \\
 f(q,\dot{q}) &\triangleq A(q)\bar{J}\dot{A}^{T}(q)\dot{q}, \\
 g(q) &\triangleq b(q,\phi(q)) + A(q)\bar{b}(q,\phi(q)), \\
 G(q) &\triangleq B(q,\phi(q)) + A(q)\bar{B}(q,\phi(q)),
 \end{split} \end{equation*}
-on obtient finalement le modèle dynamique général d'un système mécanique articulé 
-sous la forme suivante :
+The general dynamic model of an articulated mechanical system is finally obtained under this form :
 \eqn
 M(q)\ddot q + f(q,\dot q) + g(q) = G(q)u. \label{modmecgen}
 \eeqn
-\noindent Dans cette équation :
+\noindent In this equation :
 \begin{itemize}
-\item $q$ est le vecteur (de dimension $\delta$) des coordonnées nécessaires 
-à la description du système,
-\item $M(q)$ est la matrice d'inertie (de dimensions $\delta \times \delta$) symétrique et
-définie positive,
-\item $f(q,\dot{q})$ est le vecteur (de dimension $\delta$) qui représente les forces et
-les couples résultant des liaisons relatives aux contraintes; il peut aussi s'écrire 
-sous la forme 
+\item $q$ is the vector (of dimension $\delta$) of coordinates  necessary for the description of the systeme,
+\item $M(q)$ is the inertia matrix (of dimensions $\delta \times \delta$) symmetrical and defined positive,
+\item $f(q,\dot{q})$ is the vector (of dimension $\delta$) that represents forces and couples resulting  of relative liaisons  to constraints; it could also be written as 
 \eqnn
 f(q,\dot{q}) = C(q,\dot{q})\dot{q}
 \eeqnn
-où $C(q,\dot{q})$ est la matrice de dimensions $\delta \times \delta$ définie
-comme suit :
+where $C(q,\dot{q})$ is the matrix of dimensions $\delta \times \delta$ defined below :
 \eqnn
 C(q,\dot{q}) \triangleq A(q)\bar{J}\dot{A}^{T}(q),
 \eeqnn
-\item $g(q)$ est un vecteur (de dimension $\delta$) représentant les forces et les
-couples résultant de la gravité,
-\item $u$ est le vecteur (de dimension $m$) des forces et couples appliqués au système,
-\item $G(q)$ est une matrice cinématique de dimensions $\delta \times m$.
+\item $g(q)$ is a vector (of dimension $\delta$) representing forces and couples which resulting of gravity,
+\item $u$ is a vector (of dimension $m$) of forces and couples applied to the system ,
+\item $G(q)$ is a cinematic matrix of dimensions  $\delta \times m$.
 \end{itemize}
 
-\noindent Une fois le modèle dynamique général (\ref{modmecgen}) établi, il ne reste 
-qu'à en déduire le modèle d'état du système :
+\noindent Once the general dynamic model  (\ref{modmecgen}) established, the last step remaining is the deduction of the state model of the system :
 \begin{equation*} \begin{split}
 \dot{q} &= v, \\ 
 \dot{v} &= M^{-1}(q)[-f(q,v) - g(q) + G(q)u].
 \end{split} \end{equation*}
-Dans ces équations d'état, $q$ est le vecteur des coordonnées de position et 
-$v=\dot{q}$ est le vecteur des coordonnées de vitesse.
+In these state equations, $q$ is the coordinates vector of position and 
+$v=\dot{q}$ is the coordinates vector of speed.
 
-\begin{exemple} {\bf Modèle dynamique d'un robot manipulateur.}
+\begin{exemple} {\bf Dynamic model of a manipulator robot .}
 
-Un robot manipulateur est formé d'un ensemble de segments rigides 
-articulés.  Les articulations sont de type roto\"\i de ou de type
-prismatique.  Une articulation roto\"\i de permet un mouvement
-relatif de rotation entre deux segments.  Une articulation
-prismatique permet un mouvement relatif de translation entre deux
-segments.
+A manipulator robot is formed by a set of rigid articulated segments. There is two kinds of joints : the revolute joint and the prismatic joint. A revolute allows a relative movement of rotation between two segments. A prismatic joint allows a relative movement of translation between two segments. 
 
-Les robots sont actionnés par des moteurs encastrés produisant
-des forces de translation pour les articulations prismatiques et des
-couples de rotation pour les articulations roto\"\i des.
+Robots are operated by recessed engines producing translation forces for prismatic joints and rotation couples for revolute joints.
 
-Nous considérons le robot manipulateur représenté à la figure 
-\ref{Fig:robot} et formé d'un segment rigide se déplaçant horizontalement
-(corps 1) auquel est articulé un deuxième segment rigide pouvant effectuer un mouvement
-de rotation (corps 2). Le mouvement du système est provoqué par la force $F$ appliquée 
-horizontalement au premier segment et le couple de rotation $T$ appliqué au deuxième
-segment. Le repère inertiel et les  différentes coordonnées sont indiquées sur la figure.
+Let’s consider the manipulator robot represented in the figure 
+\ref{Fig:robot} formed by rigid segment 
+moving horizontally (body 1) which a second rigid segment is articulated. The second segment could perform a rotation movement (body 2). The movement of the system is due to the application of the force $F$ applied horizontally on the first segment and the couple of rotation $T$ applied on the second segment. The inertial basis and the different coordinates are indicated on the figure. 
+
 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=8.5cm]{robot2}
-\caption{Modélisation d'un robot manipulateur}
+\caption{Modelisation of a manipulator robot}
 \label{Fig:robot}
 \end{center}
 \end{figure}
 
-Ce système est soumis aux contraintes suivantes :
+This system is subjected to these constraints  :
 \begin{description}
-\item {\em Contraintes de parcours :}
+\item {\em Course  constraints  :}
 \begin{equation*} \begin{split}
 y_1 &= 0, \\
 \theta_1 &= 0.
 \end{split} \end{equation*}
-\item {\em Contraintes de liaison :}
+\item {\em Liaison constraints   :}
 \begin{equation*} \begin{split}
 x_2 - b\sin\theta_2 - x_1 - a&= 0, \\
 y_2 + b\cos\theta_2 &= 0.
 \end{split} \end{equation*}
 \end{description}
-\noindent Les contraintes de parcours expriment le fait que le corps 1 ne peut se déplacer
-qu'horizontalement. Les contraintes de liaison expriment la relation existant
-entre les coordonnées cartésiennes des centres de masse des deux corps en raison
-de leur articulation. La matrice jacobienne des contraintes s'écrit comme suit :
+\noindent The course constraints show the fact that the body 1 can only have a horizontal movement. The liaison constraints express the relation existing between the Cartesian coordinates of the centers of mass of these two bodies due to their joint. The Jacobian matrix of constraints is written as followed :
 $$
 \bma{cccccc} 0 & 1 & 0 & 0 & 0 & 0 \\ 
 0 & 0 & 1 & 0 & 0 & 0\\ -1 & 0 & 0 & 1 & 0 & -b\cos\theta_2 \\
 0 & 0 & 0 & 0 & 1 & -b\sin\theta_2 \ema.
 $$
-On observe que cette matrice est de plein rang $\sigma = 4$ et donc que le système
-possède $\delta = 2$ degrés de liberté (comme on pouvait s'y attendre). On observe
-aussi que l'on peut définir la partition $(q,\bar{q})$ des coordonnées comme suit:
+It is observed that this matrix is a full row matrix  $\sigma = 4$ and so the system has $\delta = 2$ degrees of freedom ( as it is expected ). It is also observed that the partition $(q,\bar{q})$ can be described with this coordinates like:
 $$
 q = \bma{c} x_1 \\ \theta_2 \ema, \hh 
 \bar{q} = \bma{c} y_1 \\ \theta_1 \\ x_2 \\ y_2\ema.
 $$
-Il est aisé de vérifier que dans tout l'espace de configuration, les coordonnées 
-$\bar{q}$ peuvent s'exprimer comme une fonction explicite $\bar{q} = \phi(q)$ des 
-coordonnées $q$~:
+It is easy to verify that in all the configuration space, coordinates 
+$\bar{q}$ can be expressed as an explicit function  $\bar{q} = \phi(q)$ of coordinates  $q$~:
 \begin{align}
 y_1 &= 0, \label{c1} \\
 \theta_1 &= 0, \label{c2} \\
 x_2 &= x_1 + b\sin\theta_2 + a, \label{c3} \\
 y_2 &= - b\cos\theta_2. \label{c4}
 \end{align}
-On pourra donc éliminer les coordonnées $\bar{q}=(y_1, \theta_1, x_2, y_2)^{T}$ de la
-description du système et ne conserver que les coordonnées $q=(x_1, \theta_2)^{T}$.
-La matrice $A(q)$ s'écrit :
+It is now possible to eliminate the coordinates  $\bar{q}=(y_1, \theta_1, x_2, y_2)^{T}$ of the description of the system and just keep the coordinates $q=(x_1, \theta_2)^{T}$.
+The matrix $A(q)$ is written :
 $$  
 A(q) = (\frac{\partial \phi}{\partial q})^{T} = \bma{cccc} 0 & 0 & 1 & 0 \\ 
 0 & 0 & b\cos\theta_2 & b\sin\theta_2 \ema
 $$  
-Les équations du mouvement s'écrivent :
+The movement equations are written  :
 \begin{align}
 m_1\ddot x_1 &= F - \lambda_3, \label{eqmo1}\\
 I_2\ddot \theta_2 &= - \lambda_3b\cos\theta_2 - \lambda_4b\sin\theta_2 
@@ -354,33 +328,31 @@ I_1\ddot \theta_1 &= \lambda_2, \label{eqmo4}\\
 m_2\ddot x_2 &= \lambda_3, \label{eqmo5}\\
 m_2\ddot y_2 &= -m_2g_0 + \lambda_4. \label{eqmo6}
 \end{align}
-En combinant les contraintes (\ref{c1}), (\ref{c2}) avec les équations du mouvement
-(\ref{eqmo3}), (\ref{eqmo4}) on déduit les valeurs suivantes de $\lambda_1$ et $\lambda_2$ :
+By combining constraints  (\ref{c1}), (\ref{c2}) ) with the movement equations
+(\ref{eqmo3}), (\ref{eqmo4}) the following values  $\lambda_1$ et $\lambda_2$are deducted :
 $$
 \lambda_1 = m_1g_0,\hd \lambda_2 =0.
 $$
-Ces valeurs expriment les forces de liaison appliquées aux deux corps pour satisfaire
-les contraintes de parcours le long du mouvement du système.
+These values express the liaison forces applied on the two bodies to satisfy the course constraints along the movement system. 
 
-D'autre part, en éliminant $\lambda_3$ et $\lambda_4$ entre les équations du mouvement
-(\ref{eqmo1}), (\ref{eqmo2}), (\ref{eqmo5}), (\ref{eqmo6}), on obtient :
+Moreover, by suppressing  $\lambda_3$ et $\lambda_4$ between the movement equations
+(\ref{eqmo1}), (\ref{eqmo2}), (\ref{eqmo5}), (\ref{eqmo6}), this result is obtained:
 \eqn
 \bma{c} m_1\ddot x_1 \\ I_2\ddot \theta_2 \ema + \bma{cc} 1 & 0 \\ b\cos \theta_2
 & b\sin \theta_2 \ema \bma{c} m_2\ddot x_2 \\ m_2\ddot y_2 \ema = 
 \bma{c} F \\ T - bm_2g_0\sin\theta_2 \ema. \nonumber \\ \label{t1} 
 \eeqn
-En dérivant deux fois les contraintes (\ref{c3}), (\ref{c4}), on obtient :
+By derivating two times the constraints  (\ref{c3}), (\ref{c4}), the result is obtained :
 \eqn
 \bma{c} m_2\ddot x_2 \\ m_2 \ddot y_2 \ema = \bma{cc} 1 & b\cos\theta_2 \\ 0 & 
 b\sin\theta_2 \ema \bma{c} m_2\ddot x_1 \\ m_2\ddot \theta_2 \ema + 
 m_2b {\dot \theta_2}^2 \bma{c} -\sin\theta_2 \\ \cos\theta_2 \ema. \label{t2}
 \eeqn
-En substituant (\ref{t2}) dans (\ref{t1}), on obtient finalement le modèle du système
-sous la forme désirée :
+By substituting  (\ref{t2}) in (\ref{t1}), the model of the system is obtained under the desired form:
 \eqn
 M(q)\ddot{q} + C(q,\dot{q})\dot{q} + g(q) = G(q)u,  \label{eqmouv}
 \eeqn
-avec
+with
 \begin{equation*} \begin{split}
 M(q) &= \bma{cc} m_1 + m_2 & m_2b\cos\theta_2 \\ m_2b\cos\theta_2 & I_2 + m_2b^2 \ema, \\
 C(q,\dot{q}) &= \bma{cc} 0 & -m_2b\dot \theta_2 \sin\theta_2 \\ 0 & 0 \ema, \\
@@ -390,58 +362,43 @@ G(q)u &= \bma{c} F \\ T \ema. \end{split} \end{equation*}
 
 \end{exemple}
 
-\section{Propriétés de la matrice d'inertie}
+\section{Properties of the inertia matrix }
 
 \begin{enumerate}
-\item La matrice d'inertie $M(q)$ est symétrique et définie positive. En effet, elle est
-la somme d'une matrice diagonale $J$ dont les éléments sont positifs et d'une
-matrice symétrique et semi-définie positive $A(q)\bar{J}A^{T}(q)$.
-\item La dérivée temporelle de la matrice d'inertie $\dot M(q)$ vérifie la relation suivante :
+\item The inertia matrix $M(q)$ is symmetrical and defined positive. Indeed, this matrix is the sum of a diagonal matrix $J$ whose the elements are positive and a matrix symmetrical and semi-defined positive $A(q)\bar{J}A^{T}(q)$.
+\item The temporal derivative of the inertia matrix$\dot M(q)$ verifies this following relation:
 \begin{equation*} \begin{split}
 \dot M(q) &= A(q)\bar{J}\dot A^{T}(q) + \dot A(q)\bar{J}A^{T}(q),  \\
 &= C(q,\dot q) + C^T(q,\dot q). \label{prop2}
 \end{split} \end{equation*}
-Cette relation implique que la matrice
+This relation involves that the matrix 
 \eqn
 \dot M(q) - 2C(q,\dot q) \label{prop1}
 \eeqn
-est antisymétrique.
-\item La matrice d'inertie $M(q)$ vérifie la relation suivante :
+is anti-symmetric.
+\item 	The inertia matrix $M(q)$ verifies the following relation :
 \eqn
 \frac{\partial}{\partial q}(\dot q^T M(q) \dot q) = \dot q^T C(q, \dot q). \label{prop2}
 \eeqn
-La vérification de cette expression est laissée à titre d'exercice.
+The verification of this expression is left as an exercise.
 \end{enumerate}
 
 
-\section{Articulations élastiques}
+\section{Elastic joints}
 
-Nous avons considéré jusqu'à présent des systèmes mécaniques articulés formés 
-uniquement de corps rigides sans possibilité de flexibilité ou de souplesse dans les 
-liaisons et les articulations. Une telle hypothèse n'est pas réaliste dans de nombreuses 
-applications. Une manière simple d'introduire de la souplesse dans les articulations 
-d'un système mécanique articulé est de placer un petit ressort (fictif) de masse nulle 
-dans les liaisons entre corps comme indiqué sur la figure \ref{Fig:flexiart}. Ce ressort 
-exerce une force de rappel sur chacun des deux corps auxquels il est attaché. Cette force 
-s'applique au point de fixation du ressort et est une fonction monotone croissante de 
-l'élongation du ressort. Elle s'ajoute aux autres forces appliquées au système dans 
-l'écriture des équations du mouvement. Lorsque de l'élasticité est ainsi introduite 
-dans une articulation entre deux corps du système, il va de soi que la ou les contraintes 
-de liaison correspondantes disparaissent et que le nombre de degrés de liberté est
-augmenté corrélativement. Nous illustrons la méthode sur un exemple 
-simple d'un système à deux corps. 
+Until this moment, it has always been considered that articulated mechanic systems were formed only by rigid bodies without possibilities of flexibility or of suppleness in the liaisons and the joints. But a such hypothesis is not realistic in numerical applications. A simple way to introduce suppleness in the joints of a articulated mechanic system is to place a small spring (fictive) massless in the liaisons between bodies as shown in the figure \ref{Fig:flexiart}. The spring exerts a restoring force on each bodies where the spring is attached. This force is applied on the fixation point of the spring, and is a monotonically increasing function of the spring elongation. This force is added on the other forces applied on the system in the writing of the movement equations. When the elasticity is thus introduced in a joint of two bodies of the system, It seems to be logical that where the constraints of corresponding liaisons disapear, and that the number of degrees of freedom is correlatively increased. The method is illustrated on a simple example of a double bodies system. 
 
-\begin{exemple} {\bf Système à deux corps avec une articulation élastique.}
+\begin{exemple} {\bf Two bodies system with an elastic joint .}
 
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=3in]{flexiart}
-\caption{Modélisation d'une articulation élastique}
+\caption{Elastic joint modelisation }
 \label{Fig:flexiart}
 \end{center}
 \end{figure}
-Nous considérons le système à deux corps représenté sur la figure \ref{Fig:flexiart}.
-Les équations du mouvement des deux corps s'écrivent comme suit~:
+Let's consider the two bodies system represented on the figure  \ref{Fig:flexiart}.
+The movement equations of the two bodies are written as follow~:
 \begin{align}
 m_1\ddot x_1 &= F_1, \label{eqmou1}\\
 m_1\ddot y_1 &= F_2, \\
@@ -450,24 +407,21 @@ m_2\ddot x_2 &= - F_1, \\
 m_2\ddot y_2 &= - F_2, \\
 I_2\ddot \theta_2 &=  F_1d_2\sin\theta_2 - F_2d_2\cos\theta_2, \label{eqmou6}
 \end{align}
-où $F_1$ et $F_2$ désignent les amplitudes des composantes des forces de rappel 
-appliquées aux deux corps en raison de la présence du ressort.  
+where $F_1$ and $F_2$ indicate the amplitudes  of the components of the restoring forces applied on two bodies due to the presence of the spring. 
 
-Les coordonnées cartésiennes des points de fixation du ressort sur les deux corps
-s'expriment comme suit :
+The cartesian coordinates of the fixation points of the spring on the two bodies are expressed like this :
 \begin{align*}
 \tilde x_1 &= x_1 + d_1\cos\theta_1, \\
 \tilde x_2 &= x_2 - d_2\cos\theta_2, \\
 \tilde y_1 &= y_1 + d_1\sin\theta_1, \\
 \tilde y_2 &= y_2 - d_2\sin\theta_2. 
 \end{align*}
-L'élongation du ressort est définie comme le vecteur de composantes $\epsilon_1$ et 
+The elongation of the spring is defined as the vector of components  $\epsilon_1$ and 
 $\epsilon_2$ :
 \eqnn
 \epsilon_1 = \tilde{x}_2 - \tilde{x}_1 \hspace{10mm} \epsilon_2 = \tilde{y}_2 - \tilde{y}_1
 \eeqnn
-Les forces de rappel $F_1$ et $F_2$ sont modélisées comme des fonctions monotones 
-croissantes des composantes de l'élongation (voir Figure \ref{Fig:forcelong})~:
+The restoring forces $F_1$ et $F_2$ are modeled as monotone increasing functions of composents of the elongation (see Figure \ref{Fig:forcelong})~:
 \eqnn
 F_1 = r(\epsilon_1) \hspace{10mm} F_2 = r(\epsilon_2)
 \eeqnn
@@ -475,17 +429,16 @@ F_1 = r(\epsilon_1) \hspace{10mm} F_2 = r(\epsilon_2)
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=4cm]{forcelong}
-\caption{Articulations élastiques : force de rappel en fonction de l'élongation}
+\caption{elastic joints : restoring force with respect to the elongation }
 \label{Fig:forcelong}
 \end{center}
 \end{figure}
-Souvent, pour des raisons de simplicité, on adopte un modèle linéaire c-à-d:
+Often, for some simplification reasons,the linear model is adopted, ie :
 \begin{align*}
 F_1 &= k_0(\tilde x_2 - \tilde x_1) = k_0((x_2 - x_1) - (d_1\cos\theta_1 + d_2\cos\theta_2)), \\
 F_2 &= k_0(\tilde y_2 - \tilde y_1) = k_0((y_2 - y_1) - (d_1\sin\theta_1 + d_2\sin\theta_2)),
 \end{align*}
-où la constante $k_0$ est appelée {\em constante de rappel} du ressort. Dans ce cas, les 
-équations du mouvement (\ref{eqmou1})-(\ref{eqmou6}) se réécrivent comme suit:
+where the constant $k_0$ is called {\em spring constant}. In this case, the movement equations  (\ref{eqmou1})-(\ref{eqmou6}) are rewritten as follows:
 \begin{align*}
 m_1\ddot x_1 &= k_0((x_2 - x_1) - (d_1\cos\theta_1 + d_2\cos\theta_2)), \\
 m_1\ddot y_1 &= k_0((y_2 - y_1) - (d_1\sin\theta_1 + d_2\sin\theta_2)), \\
@@ -498,149 +451,116 @@ I_2\ddot \theta_2 &=  k_0d_2((x_2 - x_1 - d_1\cos\theta_1 - d_2\cos\theta_2)\sin
 \end{align*}
 \end{exemple}
 
-Cet exemple montre que dans le cas d'un système mécanique articulé, le modèle dynamique 
-général (\ref{modmecgen}) est modifié comme suit :
+This example shows that in the case of mechanic articulated system,the general dynamic model  (\ref{modmecgen}) is modified as :
 \eqn
 M(q)\ddot{q} + f(q,\dot{q}) + g(q) + k(q) = G(q)u \label{modgenflex}
 \eeqn
-où apparaît le terme additionnel $k(q)$ qui représente l'effet des forces de rappel
-du à la présence d'articulations élastiques dans le système.
+where appears the additional term $k(q)$ representing the effect of restoring forces due to the presence of elastic joints in the system.
 
-\section{Frottement}
-\markboth{{\bf \hspace*{5mm}Chapitre 2 }\hfill Systèmes mécaniques articulés}
-{{ \bf Sec. \thesection }\hfill Frottement\hspace*{5mm}} 
+\section{Friction}
+\markboth{{\bf \hspace*{5mm}Chapitre 2 }\hfill Articulated mechanical systems}
+{{ \bf Sec. \thesection }\hfill Friction\hspace*{5mm}} 
 
-La présence de forces de frottement est un autre phénomène physique que nous avons 
-négligé jusqu'ici et qui a souvent un effet important sur le mouvement 
-des systèmes mécaniques. En particulier, dans le cas d'articulations élastiques
-modélisées comme dans la section précédente, la présence d'un amortissement 
-par le frottement est indispensable si l'on veut éviter de développer des modèles 
-qui soient le siège d'oscillations persistantes peu conformes à la réalité 
-expérimentale.
+The presence of friction forces is another physic phenomenon that was neglected until this moment and that is often an important effect on the movement of mechanic systems. In particular, in the case of elastic joints modeled like in the precedent section, the presence of an damping by the friction is essential to avoid the developing of models that would be the oscillations centers which are not really conform to the experiment reality.
 
-Il y a plusieurs manières d'introduire le frottement dans la description d'un système
-mécanique articulé. Nous retiendrons ici la plus simple qui consiste à supposer
-que le mouvement de chacune des coordonnées $q_i$ du vecteur des coordonnées 
-généralisées $q = (q_1, q_2, \hdots , q_\delta)$ est affecté par une force de frottement
-séparée ne dépendant que de la vitesse $(\dot{q_i})$ de cette même coordonnée et
-notée $h_i(\dot{q_i})$. Le vecteur de ces forces de frottement est lui même noté
+There are many ways to introduce the friction in the description of a mechanic articulated system. We will retain here the most simple description supposing  that the movement of each coordinates  $q_i$ of the vector of generalized coordinates  $q = (q_1, q_2, \hdots , q_\delta)$ ,…) is affected by a separated friction force only depending of the speed  $(\dot{q_i})$ of this same coordinate and denoted $h_i(\dot{q_i})$. The vector of these friction forces is written   
 $$
 h(\dot{q}) = \bma{c} h_1(\dot{q_1}) \\ h_2(\dot{q_2}) \\ \vdots \\ h_{\delta}(\dot{q_\delta}) \ema
 $$
-de sorte que le modèle dynamique général (\ref{modgenflex}) est augmenté comme suit :
+in order that the general dynamic model (\ref{modgenflex}) is increased as follows  :
 $$
 M(q)\ddot{q} + f(q,\dot q) + g(q) + k(q) + h(\dot{q}) = G(q)u. \label{modgenflexfrot}
 $$
-La forme la plus courante des fonctions $h_i(\dot q_i)$ est la suivante :
+The most common form of the functions $h_i(\dot q_i)$ est is this one :
 $$
 h_i(\dot q_i) = \alpha_{i}\mbox{sign}(\dot q_i) + \beta_i(\dot q_i).
 $$
-Dans cette équation le premier terme $\alpha_{i}\mbox{sign}(\dot q_i)$ représente le frottement
-sec tandis que le deuxième terme $\beta_i(\dot q_i)$ représente le frottement
-visqueux. Le coefficient $\alpha_i$ est constant. La fonction $\beta_i$ est monotone croissante avec $\beta(0) = 0$. On remarquera que la fonction $h$ est discontinue à l'origine, ce
-qui peut entrainer des difficultés pour la simulation et l'analyse du système. Dans les applications qui seront considérées dans ce livre, sauf indication contraire, nous supposerons que le frottement sec est négligé ($\alpha_i = 0$).
+In this equation, the first term  $\alpha_{i}\mbox{sign}(\dot q_i)$ represents the dry friction while the second term $\beta_i(\dot q_i)$ represents the viscous friction. The $\alpha_i$ coefficient is constant. The function $\beta_i$ is monotonically increasing with $\beta(0) = 0$. It is noticed that the function $h$ is discontinuous at the origin, 
+that can involve difficulties for the simulation and the analysis of the system. In the applications that will be considered in this book, except inverse indication, it is supposed that the dry friction is neglected ($\alpha_i = 0$).
 
-\section{Energie et équation d'Euler-Lagrange} 
+\section{Energy and Euler-Lagrange equation} 
 
-L'énergie cinétique $E_C$ d'un système mécanique articulé est définie comme suit~:
+The kinetic energy $E_C$ of a articulated mechanic system is defined as ~:
 $$
 E_C(q,\dot q) =  \frac{1}{2} \dot q^T M(q) \dot q.
 $$
-L'énergie potentielle $E_P$ est une primitive de la somme des forces dérivant d'un
-potentiel, c'est à dire les forces de gravité et les forces de rappel des ressorts~:
+The potential energy  $E_P$ is the primitive of the sum of forces deriving of a potential, to be more precise, gravity forces and restoring forces of springs ~:
 $$
 \frac{\partial E_P(q)}{\partial q} = g^T(q) + k^T(q).
 $$
-L'énergie totale $E_T$ est la somme de l'énergie cinétique et de l'énergie potentielle :
+The total energy $E_T$ is the sum of the kinetic and potential energy :
 $$
 E_T = E_C + E_P.
 $$
-L'évolution de l'énergie totale au cours du mouvement du système est examinée en
-calculant sa dérivée temporelle :
+The evolution of the total energy during the movement of the system is examined by calculating his temporal derivative :
 \begin{equation} \begin{split}
 \dot E_T &= \frac{\partial E_C}{\partial \dot q}\ddot q + \frac{\partial E_C}{\partial q}\dot q
 + \frac{\partial E_P}{\partial q}\dot q \\
 &= \dot q^T [M(q) \ddot q + \frac{1}{2} \dot M(q) \dot q + g(q) + k(q)].
 \end{split} \end{equation}
-En substituant l'expression de $M(q)\ddot q$ extraite de l'équation générale du mouvement
-(\ref{eqmouv}), on obtient :
+By substituting the expression  $M(q)\ddot q$ extracted of the general equation of the movement 
+(\ref{eqmouv}), this result is obtained :
 $$
 \dot E_T = \frac{1}{2} \dot q^T [\dot M(q) - 2C(q,\dot q)] \dot q + \dot q^T [G(q)u - h(\dot q)].
 $$
-Le premier terme du membre de droite de cette équation est nul car la matrice $\dot M(q) - 2C(q,\dot q)$
-est antisymétrique (voir plus haut). Il reste donc :
+The first term of the right member of this equation is equal to zero because the matrix  $\dot M(q) - 2C(q,\dot q)$
+is anti-symmetrical (see above). It remains :
 $$
 \dot E_T = \dot q^T [G(q)u - h(\dot q)].
 $$
-Lorsque le système n'est soumis à aucune autre force que celles qui dérivent d'un
-potentiel, l'énergie totale est constante tout au long du mouvement :
+When the system is not subjected by any other forces than forces deriving of a potential, the total energy is constant during the entire movement :
 $$
 G(q)u - h(\dot q) = 0 \hspace{5mm} \Rightarrow \hspace{5mm} \dot E_T = 0.
 $$
-Dans ce cas, on dit que le système est {\em conservatif}.
+In this case, It is said that the system is  {\em conservative }.
 
-En utilisant les propriétés (\ref{prop1}) et (\ref{prop2}), on vérifie aussi que l'énergie
-cinétique satisfait la relation suivante :
+By using proprieties (\ref{prop1}) and (\ref{prop2}), it is verified that the kinetic energy satisfied this following relation:
 \eqnn
 \frac{d}{dt}(\frac{\partial E_C}{\partial \dot q})^T - (\frac{\partial E_C}{\partial q})^T = 
 M(q)  \ddot q + C(q, \dot q) \dot q.
 \eeqnn
-Il s'en suit qu'une expression alternative de l'équation générale du mouvement (\ref{eqmouv})
-est donnée par l'expression :
+this results in a alternative expression of the general movement equation (\ref{eqmouv})
+is given by the expression :
 \eqnn
 \frac{d}{dt} (\frac{\partial L(q, \dot q)}{\partial \dot q})^T - (\frac{\partial L(q, \dot q)}
 {\partial q})^T = G(q)u - h(\dot q)
 \eeqnn
-avec :
+with :
 \eqnn
 L(q, \dot q) \triangleq E_C(q, \dot q) - E_P(q, \dot q).
 \eeqnn
-Cette équation porte généralement le nom d'{\em équation d'Euler-Lagrange} et la
-quantité $L(q, \dot q)$ est appelée {\em Lagrangien} du système.
+This equation is generally called the {\em Euler-Lagrange equation} and the quantity  $L(q, \dot q)$ is called {\em Lagrangien} of the system.
 
-\section{Systèmes non-holonomes}
+\section{Nonholonomic  system }
 
-Les systèmes non-holonomes sont des systèmes mecaniques articulés dont
-les contraintes de parcours peuvent dépendre non seulement des positions
-$q$ mais aussi des vitesses $\dot q$. Lorsque ces contraintes ne
-peuvent etre intégrées pour produire des contraintes de parcours qui
-dépendent exclusivement des coordonnées de configuration, elles sont
-appel\'ees {\it non-holonomes}. Cette situation se pr\'esente dans de
-nombreuses applications pratiques, notamment dans le
-domaine de l'automobile, dans le domaine a\'eronautique et en
-robotique. Nous consid\'erons le cas particulier d'un
-syst\`eme ayant $\delta$ degr\'es de libert\'e qui est soumis \`a
-$m$ contraintes non-holonomes ind\'ependantes ($m < \delta$) qui sont  
-lin\'eaires par rapport aux vitesses :
+The nonholonomics  systems are articulated mechanic systems for which course constraints can non only depend  of positions 
+$q$ but also speeds $\dot q$. When these constraints can not  be integrated to produce course constraints which depend exclusively of configuration coordinates, there are called {\it nonholonomic}. This situation is produced under various practical applications, more specifically in automotive, robotic and aviation industry.  We consider the particular case of one specific having $\delta$ degrees of freedom which is subjected to 
+$m$ nonholomics independent constraints ($m < \delta$) which are linear with respect to speeds :
 $$
 N^T(q) \dot q = 0
 $$
-avec la matrice $N^T(q)$ de dimensions $(m \times \delta)$ et de plein rang.
-Définissons la matrice $S(q)$, de dimensions $\delta \times (\delta - m)$ et de
-plein rang, telle que :
+with the full row matrix $N^T(q)$ of dimensions $(m \times \delta)$. 
+The matrix $S(q)$, of dimensions $\delta \times (\delta - m)$ and of full row is defined as :
 \eqnn
 N^T(q)S(q)=0.
 \eeqnn
-Les contraintes sont \'equivalentes au fait que le vecteur des vitesses
-$\dot q$ appartient \`a l'espace engendr\'e par les colonnes de la matrice
-$S(q)$ ou, autrement dit, qu'il existe un vecteur $\eta$ de dimension
-$(\delta-m)$ tel que :
+The constraints are equivalents to the fact that the vector of speeds 
+$\dot q$ belongs to the space generated by the columns of the matrix 
+$S(q)$ or, in another way,  there is a vector $\eta$ of dimension
+$(\delta-m)$ as:
 \eqn
 \dot q = S(q) \eta. \label{modcin}
 \eeqn
-Les \'equations du mouvement s'\'ecrivent sous la forme standard :
+The movement equations are written under the standard form  :
 \eqnn
 M(q) \ddot{q} + f(q, \dot q) + g(q) + N(q)\lambda = G(q) u,
 \eeqnn
-en y ajoutant le terme $N(q)\lambda$ qui repr\'esente les forces de liaison
-qui garantissent que les contraintes sont satisfaites le long du
-mouvement (voir section 1.2.3). On \'elimine les multiplicateurs de
-Lagrange $\lambda$ en pr\'emultipliant cette \'equation par $S^T(q)$:
+by adding the term  $N(q)\lambda$ 
+mouvement that represents the liaison forces which guarantee that the constraints are satisfied along the movement (see section 1.2.3). By suppressing the Lagrange multipliers On  $\lambda$ and by pre-multiplying this equation by $S^T(q)$:
 \eqnn
 S^T(q)M(q) \ddot{q} + S^T(q)[C(q, \dot q) \dot q + g(q)] = S^T(q)G(q)u.
 \eeqnn
-Finalement, en utilisant la relation (\ref{modcin}), on
-obtient l'expression :
+Finally, by using the relation (\ref{modcin}), this expression is obtained:
 \eqn
 J(q) \dot \eta + F(q, \eta) = S^T(q)G(q)u \label{moddyn}
 \eeqn
@@ -650,20 +570,17 @@ J(q) &=& S^T(q)M(q)S(q) \\
 F(q, \eta) &=& S^T(q) M(q) \{ [\partial_q S(q)] S(q) \eta \} \eta +
 S^T(q)f(q, S(q) \eta).
 \eeqnn
-Le mod\`ele dynamique g\'en\'eral d'un syst\`eme non-holonome est ainsi
-constitu\'e
-des \'equations (\ref{modcin}) et (\ref{moddyn}) que l'on peut \'ecrire sous
-la forme d'un mod\`ele d'\'etat:
+The general dynamic model of a nonholonomic system consists in equation  (\ref{modcin}) and (\ref{moddyn}) that we can write under a state model:
 \eqnn
 \dot q &=& S(q) \eta \\
 \dot \eta &=& J^{-1}(q) [ -F(q, \eta) + S^T(q)G(q) u ].
 \eeqnn
-On observe que le vecteur d'\'etat :
+We can observe that the state vector :
 \eqnn
 \bma{c} q \\ \eta \ema
 \eeqnn
-est de dimension $(2\delta-m)$ avec les coordonn\'ees $\eta$ homog\`enes \`a
-des vitesses. 
+is of dimension $(2\delta-m)$ with coordinates $\eta$ homogeneous to speeds. 
+
 
 \section{Exercices}
 
