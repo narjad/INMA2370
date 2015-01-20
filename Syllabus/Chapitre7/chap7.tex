@@ -9,64 +9,56 @@
 \graphicspath{ {Chapitre7/images/} }
 
 \setcounter{chapter}{6}
-\chapter{Equilibres et invariants}
-\chaptermark{Equilibres et invariants}\label{eqinv}
+\chapter{Equilibria and invariants}
+\chaptermark{Equilibria and invariants}\label{eqinv}
 
 
 
-\lettrine[lines=1]{\bf D}{}ans les chapitres 7, 8 et 9, nous allons étudier le comportement des systèmes dynamiques $\dot x= f(x,u)$ lorsque les variables d'entrée sont constantes. Dans le présent chapitre nous examinons tout d'abord les conditions  
-d'existence d'états d'équilibre et de sous ensembles invariants dans l'espace d'état.
+\lettrine[lines=1]{\bf I}{}n chapters 7, 8 and 9, we are going to study the dynamic systems behaviour $\dot x= f(x,u)$ when input variables are constant. In this particular chapter, we first take a look at the existence condition of equilibrium states and invariant subsets in the state space.
 
-\section{Equilibres : définition et exemples} 
+\section{Equilibria : definition and examples} 
 
-\begin{definition}{\bf{\em Equilibre}}
+\begin{definition}{\bf{\em Equilibrium}}
 
-Le couple $(\bar
-x,\bar u)$ est un {\em \'equilibre} du syst\`eme $\dot x = f(x,u)$ si
+The pair $(\bar
+x,\bar u)$ is an {\em \'equilibrium} of the system $\dot x = f(x,u)$ if
 \eqnn
   f(\bar x,\bar u)=0. \xqedhere{5.5cm}{\qed}
 \eeqnn
 \end{definition}
-Cette d\'efinition implique que si les signaux d'entr\'ee
-sont constants
-\`a partir de l'instant $t_0$~:
+This definition implies that if input signals are constant since $t_0$~:
 \eqnn
 u(t)=\bar u\;\;\;\forall t \geq t_0
 \eeqnn
- et si l'\'etat du syst\`eme
-est \'egal \`a $\bar x$ \`a l'instant $t_0$~:
+and if the system state
+equals $\bar x$ at $t_0$~:
 \eqnn
 x(t_0)=\bar x
 \eeqnn
- alors l'\'etat du syst\`eme reste constant et \'egal
-\`a $\bar x$ \`a tous les instants ult\'erieurs~:
+then the system state stays constant and is equal to $\bar x$ for all later moments:
 \eqnn
 x(t)=\bar x\;\;\;\forall t \geq t_0.
 \eeqnn
-Dans certains ouvrages, en particulier ceux relatifs \`a l'ing\'enierie des proc\'ed\'es, 
-un \'equilibre s'appelle aussi un {\em r\'egime permanent}. 
-De même, l'\'etat $\bar x$ d'un \'equilibre $(\bar x, \bar u)$ est parfois 
-appel\'e point d'\'equilibre ou point {\em fixe} ou encore point {\em stationnaire}.
+In some works, especially those related to  the process engineering,
+an equilibrium is also called a {\em steady state}.
+Similarly, the state $\bar x$ of equilibrium $(\bar x, \bar u)$ is sometimes called equilibrium point or {\em steady state} solution.
 
 
-\begin{definition}{\bf{\em Equilibre isol\'e}}
+\begin{definition}{\bf{\em Isolated equilibrium}}
 
-Le couple $(\bar x,\bar u)$ est un \'equilibre {\em isol\'e}
-si, pour
-$\bar u$ fix\'e, il existe un voisinage de $\bar x$ dans $\real^n$ 
-ne contenant aucun autre vecteur $\tilde x$ tel que $f(\tilde x,\bar
+The pair $(\bar x,\bar u)$ is an {\em isolated} equilibrium 
+if, for
+$\bar u$ set, there exists a neighbourhood of $\bar x$ in $\real^n$ 
+which contains only one vector $\tilde x$ such as $f(\tilde x,\bar
 u)=0$. \qed
 \end{definition}
-Les exemples qui suivent illustrent la grande
-diversit\'e des configurations d'\'equilibre possibles \`a partir de
-mod\`eles simples de syst\`emes caract\'eris\'es par des \'equations de bilan.
+Following examples show the large diversity of possible equilibrium configurations from
+simple model systems characterized by balance equations.
 
-\begin{exemple}{\bf{\em R\'eservoir \`a \'ecoulement libre}}
-
- On consid\`ere un r\'eservoir de section constante aliment\'e par une
-pompe dont le d\'ebit
- volum\'etrique $u$ est la variable d'entr\'ee tandis que
-l'\'ecoulement est libre (Fig.\ref{fig:diagecouli}). 
+\begin{exemple}{\bf{\em Free-flowing tank}}
+ 
+ We consider a tank with constant section supplied by a pump whose volumetric flow
+ $u$ is the input variable whereas the flow is free. (Fig.\ref{fig:diagecouli}). 
 \begin{figure}[h] 
 \begin{center}
 \includegraphics[width=6cm]{reseecouli}
@@ -75,221 +67,187 @@ l'\'ecoulement est libre (Fig.\ref{fig:diagecouli}).
 %\begin{center}
 \hspace{1cm}
 \includegraphics[width=4cm]{diagecouli}
-\caption{(a) Réservoir à écoulement libre (b) Diagramme d'\'equilibre}
+\caption{(a) Free-flowing tank (b) Equilibrium diagram}
 \label{fig:diagecouli}
 \end{center} 
 \end{figure}
 
-Le  mod\`ele d'\'etat de ce syst\`eme a \'et\'e \'etabli au chapitre 4~:
+The system state model was first shown in chapter 4~:
 \eqnn
 \dot x = - \frac {kx\sqrt{x} }{S \beta + x} +u,
 \eeqnn
-o\`u $x$ repr\'esente le volume du liquide contenu dans le r\'eservoir.
-Les \'equilibres du syst\`eme v\'erifient la relation $k \bar x \sqrt{\bar
-x} = \bar u (S \beta + \bar x)$ dont le graphe dans $\real^2$ porte le nom de {\em
-diagramme d'\'equilibre} (Fig. \ref{fig:diagecouli}).
-On observe sur ce graphe qu'il y a un \'etat d'\'equilibre $\bar x$
-distinct pour chaque valeur distincte de $\bar u \geq 0$ et que tous les
-\'equilibres sont isol\'es. \qed
+where $x$ represents the volume of liquid in the tank.
+The system equilibria satisfy the relation $k \bar x \sqrt{\bar
+x} = \bar u (S \beta + \bar x)$ whose graph in $\real^2$ is called {\em
+equilibrium diagram} (Fig. \ref{fig:diagecouli}).
+We can see on this graph a distinct equilibrium state $\bar x$ for each distinct value $\bar u \geq 0$ and all equilibria are isolated. \qed
 \end{exemple}
 \vv
 
-\begin{exemple}{\bf{\em R\'eservoir \`a \'ecoulement forc\'e}}
+\begin{exemple}{\bf{\em Forced flow tank}}
 
-Consid\'erons maintenant le m\^eme r\'eservoir que pr\'ec\'edemment 
-mais en supposant que l'\'ecoulement est forc\'e par une pompe dont le
-d\'ebit volum\'etrique $F_0$ est constant (Fig. \ref{fig:diagecoufor}).
+Let's now suppose we still have the same tank as earlier, 
+but this time the flow is forced by a pump 
+whose flow rate $F_0$ is constant (Fig. \ref{fig:diagecoufor}).
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=6.5cm]{resecoufor}
 \hspace{1cm}
 \includegraphics[width=40mm]{diagecoufor}
-\caption{(a) Réservoir à écoulement forcé. (b) Diagramme d'\'equilibres.}
+\caption{(a) Forced flow tank. (b) Equilibria diagram.}
 \label{fig:diagecoufor}
 \end{center} 
 \end{figure}
-Le mod\`ele
-d'\'etat devient alors~:
+The state model becomes~:
 $$\dot x=-F_0 + u.$$
-Comme dans l'exemple pr\'ec\'edent, le syst\`eme est \`a
-l'\'equilibre lorsque le d\'ebit d'entr\'ee compense exactement le
-d\'ebit de sortie~:
+As in previous example, the system reaches equilibrium when the input
+flowrate matches exactly the output flowrate~:
 $$\bar u=F_0.$$
-Cette fois, il n'y a qu'une seule valeur possible de l'entr\'ee $u$
-qui donne lieu \`a un \'equilibre. Par contre, l'\'etat d'\'equilibre
-$\bar x$ peut prendre n'importe quelle valeur positive. Le diagramme
-d'\'equilibre est illustr\'e \`a la figure \ref{fig:diagecoufor}. On observe
-que les
-\'equilibres ne sont pas isol\'es puisque $\bar x$ est
-ind\'etermin\'e. \qed
+This time, there is only one possible input value $u$ for which we have an equilibrium.
+However, the equilibrium state
+$\bar x$ can take any positive value. The equilibrium diagram is shown in figure \ref{fig:diagecoufor}. We observe that the equilibria are not isolated since $\bar x$ is 
+undetermined. \qed
 \end{exemple}
 \vv
 
-\begin{exemple}{\bf{\em Cuve de m\'elange \`a volume constant}}
+\begin{exemple}{\bf{\em Continuous stirred-tank reactor}}
 
-Consid\'erons une cuve de m\'elange de volume $V$ constant et
-parfaitement m\'elang\'ee (Fig.\ref{fig:diagcuvmel}(a)). 
+Let's consider a continuous stirred-tank reactor with constant volume $V$ (Fig.\ref{fig:diagcuvmel}(a)). 
 \begin{figure}[ht] 
 \begin{center}
 \includegraphics[width=60mm]{cuvmelvolcon}
 \hspace{1cm}
 \includegraphics[width=35mm]{diagcuvmel}
-\caption{(a) Cuve de m\'elange \`a volume constant. (b) Diagramme d'équilibres.}
+\caption{(a) Continuous stirred-tank reactor. (b) Equilibria diagram.}
 \label{fig:diagcuvmel}
 \end{center} 
 \end{figure}
-Le d\'ebit d'alimentation
-transporte une substance en solution (par exemple un colorant) de
-concentration $x_{in}$. Le d\'ebit d'alimentation $F$ est contrôl\'e
-par une vanne de caract\'eristique~:
+The feed rate carries a substance in solution (e.g., a dye) with concentration $x_{in}$. The feed rate $F$ is controlled by a valve~:
 $$F=k u+b\;\;\;k>0,\;\;b>0,$$
-o\`u $u$ d\'esigne l'ouverture de la vanne.
+where $u$ denotes the opening of the valve.
 
-L'\'etat du syst\`eme est la concentration $x$  en colorant dans la
-cuve et le mod\`ele d'\'etat s'\'ecrit~:
+The system state is the dye concentration $x$ in the reactor and the state model is~:
 $$\dot x= (x_{in}-x)\frac{k u+b}{V}.$$
 
-Le syst\`eme est \`a l'\'equilibre lorsque le d\'ebit massique de
-colorant \`a l'entr\'ee compense exactement le d\'ebit massique \`a
-la sortie~:
+The system is at equilibrium when the mass flow rate of the dye is exactly the same as the output mass flow rate~:
 $$\frac{k \bar u +b}{V}x_{in}=\frac{k \bar u +b}{V}\bar x,$$
-ce qui implique $\bar x =x_{in}$.
-Le diagramme d'\'equilibre illustr\'e \`a la figure \ref{fig:diagcuvmel}(b) montre que
-l'\'etat d'\'equilibre est fix\'e et isol\'e mais que l'entr\'ee
-constante correspondant \`a cet \'etat d'\'equilibre est
-ind\'etermin\'ee. \qed
+this implies $\bar x =x_{in}$.
+The equilibrium diagram shown in figure \ref{fig:diagcuvmel}(b) shows that the equilibrium state is fixed and isolated but the corresponding constant input is undetermined. \qed
 \end{exemple}
 \vv
 
-\begin{exemple}{\bf{\em Cuve de m\'elange \`a \'ecoulement forc\'e}}
+\begin{exemple}{\bf{\em Forced flow mixing tank}}
 
-Jusqu'\`a pr\'esent, nous avons consid\'er\'e des exemples où le vecteur d'\'etat est de
-dimension 1. Dans les syst\`emes de dimension sup\'erieure, les
-diverses configurations d\'ecrites plus haut peuvent coexister, comme nous l'illustrons
-maintenant en prenant comme exemple une cuve de m\'elange \`a
-\'ecoulement forc\'e (Fig. \ref{fig:cuvecoufor}).
+Up until now, we have only considered examples where the state vector has dimension 1. 
+In systems of higher dimension, the different configurations described earlier can coexist
+as we now illustrate with the example of a forced flow mixing tank (Fig. \ref{fig:cuvecoufor}).
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=7cm]{cuvecoufor}
-\caption{Cuve de m\'elange \`a \'ecoulement forc\'e}
+\caption{Forced flow mixing tank}
 \label{fig:cuvecoufor}
 \end{center} 
 \end{figure}
-Le mod\`ele d'\'etat de ce
-syst\`eme, en notant $x_1$ le volume de la cuve et $x_2$
-la concentration en colorant dans celle-ci, s'\'ecrit~:
+This system state model, noting $x_1$ the volume of the tank and $x_2$
+the dye concentration in the tank, is~:
 \begin{equation*} \begin{split}
 \dot x_1&= -F_0+k u+b,\\
 \dot x_2&=(x_{in}-x_2)\frac{k u+b}{x_1}.
 \end{split} \end{equation*}
-Dans ce cas ci, le diagramme d'\'equilibre se repr\'esente en dimension 
-3 (Fig.~\ref{fig:diagcuvemelcoufor}) et on constate qu'il y a une seule valeur de l'entr\'ee
-qui donne lieu \`a un \'equilibre, $\bar u=(F_0-b)/k$, et que pour
-cette valeur $\bar u$, le volume d'\'equilibre $\bar x_1$ est
-ind\'etermin\'e alors que la concentration \`a l'\'equilibre vaut
-$\bar x_2=x_{in}$. \qed
+In this case, the equilibirum diagram has 3 dimensions (Fig.~\ref{fig:diagcuvemelcoufor}) 
+and we can see there is only one input value giving an equilibrium, $\bar u=(F_0-b)/k$, 
+and for this value $\bar u$, the volume of the equilibrium $\bar x_1$ is 
+undetermined while the concentration at equilibrium is $\bar x_2=x_{in}$. \qed
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=6cm]{diagcuvemelcoufor}
-\caption{Diagramme d'\'equilibre pour la cuve de m\'elange \`a
-\'ecoulement forc\'e}
+\caption{Equilibrium diagram for the forced flow mixing tank}
 \label{fig:diagcuvemelcoufor}
 \end{center} 
 \end{figure}
 \end{exemple}
 
-Les exemples de dimension 1 ou 2 consid\'er\'es jusqu'\`a pr\'esent
-ont illustr\'e des situations o\`u
+Examples with 1 or 2 dimensions considered so far have shown situations where
 \begin{itemize}
-\item soit le syst\`eme poss\`ede un \'equilibre isol\'e pour
-chaque valeur de l'entr\'ee $\bar u$,
-\item soit le syst\`eme poss\`ede une infinit\'e d'\'equilibres
-non isol\'es correspondant \`a une valeur pr\'ecise de $\bar u$.
+\item either the system has an isolated equilibrium for 
+each input value $\bar u$,
+\item or the system has an infinity of non-isolated equilibria
+corresponding to a precise value of $\bar u$.
 \end{itemize}
-Pour les syst\`emes non-lin\'eaires, d'autres configurations
-sont possibles. En particulier, on peut observer plusieurs
-\'equilibres isol\'es correspondant \`a une m\^eme valeur de $\bar u$ comme
-cela est illustr\'e dans l'exemple suivant.
+For non linear systems, other configurations are possible. In particular,
+we can observe a few isolated equilibria corresponding to a same value of 
+$\bar u$ as in the following example.
 
-\begin{exemple}{\bf{\em R\'eacteur chimique}}
+\begin{exemple}{\bf{\em Chemical reactor}}
 
-Consid\'erons un r\'eacteur chimique continu parfaitement m\'elang\'e dans lequel se produit une
-r\'eaction exothermique irr\'eversible $A \longrightarrow B$. Le mod\`ele d'\'etat s'\'ecrit comme suit (voir Chapitres 1 et 5)~:
+Let's consider a continuous stirred-tank reactor where an irreversible exothermic reaction occurs 
+$A \longrightarrow B$. The state model is (read Chapters 1 and 5)~:
 \begin{equation*} \begin{split} 
 \dot x_A &= -kx_A e^{-\frac{\alpha}{T}}+D(x_A^{in}-x_{A}),\\
 \dot x_{B} &= kx_{A} e^{-\frac{\alpha}{T}}-D x_{B},\\
 \dot T &= hkx_{A} e^{-\frac{\alpha}{T}}-qT+u,
 \end{split} \end{equation*}
-où $x_{A}$ et $x_{A}^{in}$ sont les concentrations en r\'eactif $A$
-dans le r\'eacteur et dans l'alimentation, $x_B$ est la concentration en produit $B$, $D$ est le d\'ebit volum\'etrique suppos\'e constant d'alimentation et de sous-tirage,
-$T$ est la temp\'erature et $u$ est l'apport calorifique par unit\'e
-de temps.
+where $x_{A}$ and $x_{A}^{in}$ are the concentrations of reactant $A$
+in the reactor and in the supply, $x_B$ is the concentration of product $B$, $D$ is the constant volumetric flow rate,
+$T$ is the temperature and $u$ the heat input per unit of time.
 
-Les \'equilibres de ce syst\`eme sont caract\'eris\'es par les
-\'equations
+The equilibria of this system are characterized by those equations
 \begin{equation*} \begin{split}
 \bar x_{A}&=\frac{Dx_{A}^{in}}{k e^{-\alpha/\bar T}+D}, \\
 \bar x_{B}&=\frac{k \bar x_{A} e^{-\alpha/\bar T}}{D}, \\
 \bar T&=\frac{1}{q}\left(\frac{Dx_{A}^{in}hk  e^{-\alpha/\bar T}}{k
  e^{-\alpha/\bar T}+D} + \bar u \right).
 \end{split} \end{equation*}
-La troisi\`eme \'equation permet de d\'eterminer $\bar T$ en fonction de $\bar u$. Les deux premi\`eres permettent alors de d\'eduire de $\bar T$ des valeurs d'\'equilibre pour $\bar x_{A}$ et $\bar x_{B}$. 
+The third equation allows us to determine $\bar T$ as a function of $\bar u$. The first two then allow us to deduce from $\bar T$ values of equilibrium for $\bar x_{A}$ and $\bar x_{B}$. 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[height=4.4cm]{eqS}
-\caption{Diagramme d'\'equilibre pour un r\'eacteur chimique simple}
+\caption{Equilibrium diagram for a simple chemical reactor}
 \label{fig:eqS}
 \end{center} 
 \vspace{-5mm}
 \end{figure}
-Le diagramme d'\'equilibre repr\'esentant $\bar T$ en fonction de $\bar u$ est
-illustr\'e \`a la figure \ref{fig:eqS}.
-Suivant les valeurs de $\bar u$, on constate donc qu'il
-existe un, deux ou trois
-\'equilibres isol\'es.\qed
+The equilibrium diagram representing $\bar T$ as a function of $\bar u$ is illustrated in figure \ref{fig:eqS}.
+According to the values of $\bar u$, we see that there is one, two or three isolated equilibria.\qed
 \end{exemple}
 
-\section{\'Equilibres des syst\`emes lin\'eaires} 
+\section{Equilibria of linear systems} 
 
-Soit le syst\`eme lin\'eaire 
+Let the linear system
 \eqnn
 \dot x = Ax + Bu \label{syslin}
 \eeqnn
-pour lequel l'\'equation d\'efinissant
-les \'equilibres devient
+for which the equation defining the equilibria becomes
 \eqnn A \bar x + B \bar u = 0. \eeqnn
-Les \'equilibres d'un syst\`eme lin\'eaire sont compl\`etement
-caract\'eris\'es par le th\'eor\`eme suivant.
+The equilibria of a linear system are totally 
+characterized by the following therorem.
 
 \begin{theoreme}{\blanc}
 \begin{itemize}
-\item  Si la matrice $A$ est r\'eguli\`ere, alors pour tout $\bar u$, le couple
-$(-A^{-1}B\bar u,\bar u)$ est un \'equilibre isol\'e.
-\item Si la matrice $A$ est singuli\`ere, le syst\`eme
-(\ref{syslin}) a une infinit\'e d'\'equilibres (non isol\'es) pour
-autant que $B\bar u \in \mbox{Im}A$. Ces \'equilibres sont la
-vari\'et\'e affine solution du syst\`eme $A \bar x = -B \bar u$. Par
-contre, pour tout $\bar u$ tel que $B\bar u \notin \mbox{Im}A$, le
-syst\`eme (\ref{syslin}) ne poss\`ede pas d'\'equilibre. \qed
+\item  If matrix $A$ is regular, then for each $\bar u$, the pair
+$(-A^{-1}B\bar u,\bar u)$ is an isolated equilibrium.
+\item If matrix $A$ is singular, the system
+(\ref{syslin}) has an infinity of equilibria (non-isolated) 
+provided that $B\bar u \in \mbox{Im}A$. Those equilibria are an 
+affine manifold solution of system $A \bar x = -B \bar u$. On
+the other side, for each $\bar u$ such as $B\bar u \notin \mbox{Im}A$, the 
+system (\ref{syslin}) does not have an equilibrium. \qed
 \end{itemize}
 \end{theoreme}
 
-Pour les syst\`emes dynamiques lin\'eaires, on ne peut donc pas avoir
-plusieurs
-\'equilibres isol\'es correspondant \`a la m\^eme valeur de l'entr\'ee
-$\bar u$.  Remarquons enfin que le couple $(\bar x, \bar u) = (0,0)$ est toujours un
-\'equilibre pour un syst\`eme dynamique lin\'eaire de la forme (\ref{syslin}).
+For dynamic linear systems, we can't have several isolated equilibria corresponding 
+to the same input value $\bar u$. 
+Finally, note that the pair $(\bar x, \bar u) = (0,0)$ is always an equilibrium 
+for dynamic linear systems of the form (\ref{syslin}).
 
-\begin{exemple}{\bf{\em Mod\`eles lin\'eaires de machines DC}}
+\begin{exemple}{\bf{\em Linear models of DC machines}}
 
-Plusieurs mod\`eles de machines \`a courant continu (moteurs et
-g\'en\'eratrices) ont \'et\'e pr\'esent\'es \`a la section~3.6. Sous
-les hypoth\`eses g\'en\'erales de frottement visqueux lin\'eaire et
-de non-saturation des flux, certains de ces mod\`eles sont
-lin\'eaires. Nous examinons ci-dessous leur configuration
-d'\'equilibre.\\
+Several models of direct current machines (motors and generators) 
+were introduced in section~3.6. Under general assumptions of linear 
+viscous friction and nonstauration of the streams, some of those models 
+are linear. We examine below their configuration of equilibrium.\\
 
-\noindent{\em G\'en\'eratrice DC command\'ee par le stator}
+\noindent{\em DC generator driven by the stator}
 
 On consid\`ere le mod\`ele d'\'etat d'une g\'en\'eratrice \`a courant continu tournant \`a {\it vitesse $\omega$ constante}. En notant $x_1=I_s$, le courant statorique, $x_2=I_r$, le courant rotorique et $u=v_s$ la tension aux bornes du circuit statorique, le mod\`ele d'\'etat est lin\'eaire et s'\'ecrit comme suit~:
 $$
@@ -297,62 +255,61 @@ $$
 \ema=\bma{ccc}-\dfrac{R_s}{L_s} & & 0\\ & \vspace{-2mm} & \\ K_e\omega & &-\dfrac{R_r+R_L}{L_r}\ema
 \bma{c}x_1\\x_2 \ema + \bma{c} \dfrac{1}{L_{s}}\\ \vspace{-2mm} \\ 0\ema u
 $$
-La matrice $A$ de ce syst\`eme lin\'eaire est inversible et la
-g\'en\'eratrice poss\`ede donc un \'etat d'\'equilibre isol\'e pour
-chaque valeur de la tension d'entr\'ee $\bar u$~:
+The matrix $A$ of this linear system is invertible and the 
+generator therefore has an isolated equilibrium state for 
+each value of the input voltage $\bar u$~:
 \eqnn
 \bar x_1&=&\dfrac{L_s}{R_s}\bar u\\
 \bar x_2&=&\dfrac{L_r}{R_r+R_L}\dfrac{L_s}{R_s}K_e\omega \bar u
 \eeqnn
 
-\noindent{\em Moteur DC command\'e par le rotor}
+\noindent{\em DC motor controlled by the rotor}
 
-Avec comme variables d'\'etat pour ce syst\`eme
-$x_1=\theta$, la position angulaire du rotor, $x_2=\dot \theta=\omega$, la vitesse de rotation et $x_3=I_r$, le courant rotorique, on obtient le
-mod\`ele suivant~:
+With state variables for this system
+$x_1=\theta$, angular position of the rotor, $x_2=\dot \theta=\omega$, angular velocity and $x_3=I_r$, the rotor current, the following model is obtained~:
 $$\bma{c}\dot x_1\\ \dot x_2\\ \dot x_3\ema =
 \bma{ccc}0&1&0\\ $ \vspace{-2mm} $ \\ 0&-\dfrac{B}{J}&\dfrac{K_mI_s}{J}\\ $ \vspace{-2mm} $ \\
 0&-\dfrac{K_e I_s}{L_r} &-\dfrac{R_r}{L_r}\ema \bma{c}x_1\\x_2\\x_3\ema
 +\bma{cc}0&0\\ &\vspace{-2mm} \\ 0&\dfrac{1}{J}\\ &\vspace{-2mm} \\ \dfrac{1}{L_r}& 0\ema \bma{c}u_1\\u_2\ema
 $$
-o\`u $u_1$ est le couple r\'esistant et
-$u_2$ la tension de commande de l'induit.
-On observe que :
+where $u_1$ is the resisting torque and 
+$u_2$ the control voltage.
+We observe that :
 \begin{itemize}
-\item la matrice d'\'etat $A$ du syst\`eme est singuli\`ere,
+\item the state matrix $A$ of the system is singular,
 \item $B\bar u =(0\;\; \bar u_2/J\;\;\bar u_1/L_r)^T \notin \mbox{Im} A$
-sauf si $\bar u_1/\bar u_2=-R_r/K_mI_s$ ou si $\bar u_1=\bar u_2=0$.
+unless $\bar u_1/\bar u_2=-R_r/K_mI_s$ or if $\bar u_1=\bar u_2=0$.
 \end{itemize}
-Le premier cas correspond \`a une tension de commande rotorique qui cr\'ee un couple moteur compensant exactement le couple r\'esistant. La vitesse de rotation est alors nulle et la position angulaire du rotor est ind\'etermin\'ee. La valeur d'\'equilibre du courant rotorique est donn\'ee par $\bar x_3=\bar I_r=\bar u_2/K_m I_s$.
-Dans le deuxi\`eme cas, les \'equilibres sont  de la forme $\bar x_1=\bar \theta, \bar
-x_2=0, \bar x_3=0$, c.\`a.d. que le moteur est \`a l'arr\^et avec
-le rotor dans une position angulaire quelconque.
+The first case corresponds to a rotor control voltage which creates 
+a torque exactly compensating for the load torque. The rotational speed 
+is then zero and the rotor angular position is undetermined. The 
+equilibrium value of the rotor current is given by $\bar x_3=\bar I_r=\bar u_2/K_m I_s$.
+In the second case, the equilibria are of the form $\bar x_1=\bar \theta, \bar
+x_2=0, \bar x_3=0$, i.e. that the engine is stopped with the rotor in any angular position.
 
-On peut  examiner aussi les \'equilibres du
-sous-syst\`eme dont les \'etats sont la vitesse $\omega$ et le
-courant $I_r$~:
+We can also consider equilibria of the subsystem
+whose states are the speed $\omega$ and the current $I_r$~:
 $$\bma{c} \dot x_2\\ \dot x_3\ema =
 \bma{cc}-\dfrac{B}{J}&\dfrac{K_m I_s}{J}\\ & \vspace{-2mm} \\
 -\dfrac{K_e I_s}{L_r} &-\dfrac{R_r}{L_r}\ema \bma{c}x_2\\x_3\ema
 +\bma{cc}0&\dfrac{1}{J}\\ & \vspace{-2mm} \\ \dfrac{1}{L_r}& 0\ema \bma{c}u_1\\u_2\ema.
 $$ 
-La matrice d'\'etat de ce syst\`eme est
-inversible (toutes les constantes sont positives et le d\'eterminant ne s'annule donc pas) et \`a chaque valeur du vecteur d'entr\'ee $\bar u$
-correspondra une valeur d'\'equilibre du vecteur d'\'etat $(\bar
-x_1\;\;\bar x_2)^T$. Cette situation d'\'equilibre, qui n'est en rien
-contradictoire avec la pr\'ec\'edente, correspond au cas d'un moteur DC qui
-entra\^{\i}ne une charge en tournant \`a vitesse constante. \qed
+The state matrix of this system is invertible (all constants are positive
+and the determinant is not zero) and each value of the input vector $\bar u$
+will correspond to an equilibrium value of the state vector $(\bar
+x_1\;\;\bar x_2)^T$. This equilibrium, which is not
+contradictory with the previous one, corresponds to the case of a DC motor which
+drives a load by rotating at constant speed. \qed
 \end{exemple}
 
 \section{Invariants}
 
-La notion d'invariant que nous allons d\'efinir dans cette section est une
-g\'en\'eralisation de la notion d'\'equilibre.
+The notion of invariant we will define in this section is a generalization of the concept of equilibrium.
 
 \begin{definition}{\bf{\em Invariant}}
 
-Le sous-ensemble $\mathcal{X} \times U \subset \real^n \times \real^m$ est un invariant
-du syst\`eme dynamique $\dot x = f(x,u)$ si :
+The subset $\mathcal{X} \times U \subset \real^n \times \real^m$ is an invariant
+of the dynamic system $\dot x = f(x,u)$ si :
 \eqnn
 \left\{
 \begin{array}{l}
@@ -363,113 +320,100 @@ x(t) \text{ existe}\\ x(t) \in \mathcal{X} \end{array} \right\}\forall t \geq t_
 \eeqnn
 \end{definition}
 
-Cette d\'efinition signifie donc que si l'\'etat du syst\`eme se trouve dans $\mathcal{X}$ \`a
-un instant initial, il y restera \`a tous les instants ult\'erieurs tant que le
-signal d'entr\'ee $u(t)$ sera lui-même maintenu dans $U$.
+Thies definition means that if the state of the system is in $\mathcal{X}$ at
+an initial time, it will remain for all subsequent moments as long as the input
+signal $u(t)$ will be maintained in $U$.
 
-Nous avons d\'ej\`a rencontr\'e plusieurs exemples d'invariants dans les chapitres
-pr\'ec\'edents.  L'exemple le plus simple est l'ensemble des \'equilibres d'un
-syst\`eme correspondant \`a une entr\'ee $\bar u$ constante.  Dans ce cas, le
-sous-ensemble $U = \{\bar u\}$  est r\'eduit \`a un singleton tandis que $\mathcal{X}$
-contient le ou les \'etats d'\'equilibres $\bar x$ correspondants.  
+We have already seen several examples of invariants in the previous chapters. The simplest example is the set of equilibria of a system corresponding to a constant input $\bar u$.  
 
-Un autre exemple typique est l'{\em orthant positif} $(\mathcal{X} = \real^n_+) \times (U \subset \real^m)$ 
-qui est, par d\'efinition, un invariant pour les syst\`emes positifs
-(voir D\'efinition 4.3 et Th\'eor\`eme 4.4.).
+In this case, the subset $U = \{\bar u\}$ is reduced to a singleton and $\mathcal{X}$
+contains the corresponding equilibrium states $\bar x$.  
 
-Il y a diverses mani\`eres de caract\'eriser les invariants d'un syst\`eme
-dynamique selon la forme particuli\`ere que prend le sous-ensemble $\mathcal{X}$.  Nous
-allons pr\'esenter deux caract\'erisations remarquables : dans la premi\`ere $\mathcal{X}$
-est un ouvert de $\real^n$, dans la seconde $\mathcal{X}$ est une
-hypersurface dans $\real^n$.  \\
+Another typical exampe is the{\em positive orthant} $(\mathcal{X} = \real^n_+) \times (U \subset \real^m)$
+which is, by definition, an invariant for positive systems 
+(see Definition 4.3 and Theorem 4.4.).
 
-\noindent{\bf $\bullet$ \!$\mathcal{X}$  est un ouvert dans $\real^n$}
+There are various ways to characterize the invariants of a dynamical system depending on the particular form if the subset $\mathcal{X}$.  We will show two remarkable characterizations : in the first one $\mathcal{X}$
+is an open subspace of $\real^n$, in the second one $\mathcal{X}$ is an
+hypersurface in $\real^n$.  \\
 
-Soit $\mathcal{X}$ un sous-ensemble ouvert de  $\real^n$ dont la fronti\`ere $\partial \mathcal{X}$ est suffisamment régulière.  Si en tout
-point $y$ de la fronti\`ere $\partial \mathcal{X}$, le vecteur $f(y,v)$ pointe vers
-l'int\'erieur de $\mathcal{X}$ pour tout $v \in U$, alors le sous-ensemble $\mathcal{X} \times U$
-est un invariant du syst\`eme $\dot x = f(x,u)$.
+\noindent{\bf $\bullet$ \!$\mathcal{X}$  is an open subspace in $\real^n$}
 
-Cette caract\'erisation d'un invariant sera illustr\'ee au chapitre 8 (section 8.4).\\
+Let $\mathcal{X}$ an open subset in $\real^n$ whose border $\partial \mathcal{X}$ is regular enough.  If at any point $y$ on the border $\partial \mathcal{X}$, the vector $f(y,v)$ points inwards $\mathcal{X}$ for all $v \in U$, then the subset $\mathcal{X} \times U$
+is an invariant of the system $\dot x = f(x,u)$.
 
-\noindent{\bf $\bullet$ \!$\mathcal{X}$ est une hypersurface de niveau dans $\real^n$}
+This characterization will be discussed further in chapter 8 (section 8.4).\\
 
-On appelle {\it int\'egrale premi\`ere} une fonction $z = h(x)$ de classe $C^2$ telle que~:
+\noindent{\bf $\bullet$ \!$\mathcal{X}$ is an hypersurface in $\real^n$}
+
+We call {\it first integral} a function $z = h(x)$ of class $C^2$ such that~:
 \eqn
 \frac {\partial h}{\partial x}f(x,u) = 0 \;\;\; \forall u \in U. \label{condit}
 \eeqn
-On d\'efinit le sous-ensemble $\mathcal{X}$ comme suit :
+We define the subset $\mathcal{X}$ as follows :
 \eqnn
 \mathcal{X} \triangleq \{x \in R^n : h(x) = c \}
 \eeqnn
-avec $c$ constante r\'eelle quelconque.
-Cet ensemble $\mathcal{X}$ est une hypersurface dans $\real^n$.  Comme la condition (\ref{condit}) implique que la fonction $z = h(x)$ est constante le long des trajectoires, il est \'evident que le sous-ensemble
-$\mathcal{X} \times U$ est un invariant du syst\`eme $\dot x = f(x,u)$.  Les
-{\em invariants r\'eactionnels} en constituent une illustration typique. 
+with $c$ any real constant.
+This set $\mathcal{X}$ is an hypersurface in $\real^n$.  As the condition (\ref{condit}) implies that the function $z = h(x)$ is constant along the trajectories, it is clear that the subset
+$\mathcal{X} \times U$ is an invariant of the system $\dot x = f(x,u)$.  The
+{\em reaction invariants} are a typical example. 
 
-\begin{exemple}{\bf{\em Les invariants r\'eactionnels}}
+\begin{exemple}{\bf{\em Reaction invariants}}
 
-Ainsi que nous l'avons vu au chapitre 5, le mod\`ele d'\'etat d'un r\'eacteur continu parfaitement m\'elang\'e s'\'ecrit comme suit~:
+As we saw in chapter 5, the model of a continuous stirred-tank reactor is written as follows~:
 \eqn
 \dot x = Cr(x) + u(x^{in} -x) \label{reacteur}
 \eeqn
-où $x$ est la composition du milieu r\'eactionnel, $u$ le d\'ebit d'alimentation,
-$x^{in}$ la composition (suppos\'ee constante) de l'alimentation, $C$ est la
-matrice stoechiom\'etrique et $r(x)$ est le vecteur des cin\'etiques de r\'eaction.
+where $x$ is the composition of the reaction medium, $u$ the feed flow rate,
+$x^{in}$ the composition (supposed constant) of the feed flow, $C$ is 
+the stoichiometric matrix and $r(x)$ the vector of the reaction kinetics.
 
-Le d\'ebit $u$ est positif et born\'e par la capacit\'e maximale de la pompe
-d'alimentation $u_{\max}$, de sorte que nous d\'efinissons $U$ comme l'intervalle
-ferm\'e :
+The flow $u$ is positive and bounded by the maximum capacity of the feed pump $u_{\max}$, so we define $U$ as the closed interval :
 \eqnn
 U = [0, u_{\max}]
 \eeqnn
-D'autre part, le sous-ensemble $\mathcal{X}$ est d\'efini comme suit :
+On the other hand, the subset $\mathcal{X}$ is defined as follows :
 \eqnn
 \mathcal{X} =\{x:x\in \real^n_+, \;\; Lx = Lx^{in}\}
 \eeqnn
-où $L$ est une matrice $(n-p)\times n$ telle que $LC=0$.  En d'autres termes,
-les lignes de $L$ forment une base du noyau de la transpos\'ee de la matrice 
-stoechiom\'etrique
-$C$.
+where $L$ is a matrix $(n-p)\times n$ such as $LC=0$.  In other words, the rows of the matrix are a base of the kernel of the stoichiometric matrix transposed $C$.
 
-Le sous-ensemble $\mathcal{X} \times U$ ainsi d\'efini constitue un invariant du syst\`eme
-(\ref{reacteur}).  Pour le v\'erifier, nous consid\'erons la transformation
-lin\'eaire partielle d'\'etat :
+The subset $\mathcal{X} \times U$ thus defined is an invariant of the system
+(\ref{reacteur}).  To check our assumptions, we consider the partial linear transformation of state :
 \eqnn
 z = Lx
 \eeqnn
-dont nous calculons l'\'evolution le long des trajectoires du syst\`eme :
+and we compute its evolution along the system trajectories :
 \eqnn
 \dot z = LCr(x) + u(Lx^{in} -Lx) =   u(Lx^{in} -Lx) \;\; \mbox{car } LC=0
 \eeqnn
-Selon la d\'efinition de $\mathcal{X}$, on observe imm\'ediatement que, si $Lx(t_0) =
-Lx^{in}$, alors $\dot z =0$ le long des trajectoires du syst\`eme et donc
-$Lx(t)= Lx^{in} \;\;\;\forall t \geq t_0$, et ceci ind\'ependamment du signal
-d'entr\'ee $u(t)$.
+According to the definition of $\mathcal{X}$, we immediately observe that, if $Lx(t_0) =
+Lx^{in}$, then $\dot z =0$ along the system trajectories and therefore
+$Lx(t)= Lx^{in} \;\;\;\forall t \geq t_0$, independently of the input signal $u(t)$.
 
-D'autre part, le syst\`eme (\ref{reacteur}) est un syst\`eme positif et donc
-$x(t) \in \real^n_+$ $\forall t \geq t_0$ si $x(t_0) \in \real^n_+$ et si $u(t) \in U
+Moreover, the system (\ref{reacteur}) is a positive system, therefore
+$x(t) \in \real^n_+$ $\forall t \geq t_0$ if $x(t_0) \in \real^n_+$ and if $u(t) \in U
 \;\forall t \geq t_0$.
 
-Les invariants d\'efinis de cette mani\`ere portent le nom d'invariants
-r\'eactionnels ou encore d'invariants chimiques dans la litt\'erature. \qed
+Invariants defined this way are called reaction invariants or chemical invariants in the literature. \qed
 \end{exemple}
 
 
-\section{Exercices}
+\section{Exercises}
 
-\begin{exercice}{\bf \em Un relais électromagnétique}
+\begin{exercice}{\bf \em An electromagnetic relay}
 
-D\'eterminer les \'equilibres du mod\`ele d'\'etat d'un relais \'electromagn\'etique donn\'e au chapitre 3, exemple 3.2 (voir aussi l'exercice 6.2). \qed
+Determine the equilibria of the state model of an electromagnetic relayd in chapter 3, example 3.2 (see also exercise 6.2). \qed
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf \em G\'en\'eratrice \`a courant continu}
+\begin{exercice}{\bf \em Direct current generator}
 
-On consid\`ere le mod\`ele d'une g\'en\'eratrice \`a courant continu (voir chapitre 3, section 3.6) d\'ebitant sur une charge r\'esistive avec un frottement visqueux lin\'eaire.
+We consider the model of a DC generator (see chapter 3, section 3.6) feeding into a resistive load with a linear viscous friction.
 \begin{enumerate}
-\item Calculer les \'equilibres en fonction des entr\'ees $\bar u_1$ et $\bar u_2$
-\item D\'eterminer les points de fonctionnement optimaux qui maximisent le courant d\'ebit\'e par la g\'en\'eratrice. \qed
+\item Find the equilibria based on inputs $\bar u_1$ and $\bar u_2$
+\item Determine the optimal operating points that maximize the current supplied by the generator.. \qed
 \end{enumerate}
 \end{exercice}
 \vv
