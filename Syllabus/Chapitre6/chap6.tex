@@ -9,80 +9,75 @@
 \graphicspath{ {Chapitre6/images/} }
 
 \setcounter{chapter}{5}
-\chapter{Transformations d'état}
-\chaptermark{Transformations d'état}\label{transetat}
+\chapter{State transformation}
+\chaptermark{State transformation}\label{transetat}
 
 
-\lettrine[lines=1]{\bf D}{}ans les chapitres qui précèdent, nous avons montré comment la démarche de modélisation peut être systématisée pour différentes classes de systèmes relevant de l'ingénierie. Pour chaque type de système, un modèle d'état général a été établi. Les variables d'état retenues dans ces modèles ont un sens physique précis~: positions et vitesses pour les systèmes mécaniques, courants et tensions pour les systèmes électriques, quantités totales pour les systèmes à compartiments, concentrations, volume et température pour les systèmes réactionnels. Il est cependant souvent utile pour analyser le comportement d'un système dynamique de procéder à une {\it transformation d'état} conduisant à un modèle équivalent du système mais exprimé dans de nouvelles variables d'état.
+\lettrine[lines=1]{\bf I}{}n the previous chapters, we have shown how the modeling process can be systematized for different classes of systems relating to engineering. For each type of system, a general state model has been established. The state variables in these models have precise physical meaning: positions and speeds for the mechanical systems, currents and tensions for the electrical systems, total amount for the systems with compartments, concentrations, volume and temperature for the reaction systems. However, it’s often helpful to analyze the behavior of a dynamic system to proceed of a state transformation leading to an equivalent model of the system but expressed with new state variables. 
+ 
+In addition to state transformations, it’s also interesting to use graphical depictions to see easily some structural features of the system. Among the most common representations, the \textit{function diagram} and the \textit{graph of the system} defined below will be mentioned.
 
-Outre les transformations d'état, il est aussi intéressant d'utiliser des représentations graphiques qui permettent de visualiser aisément certaines particularités structurelles du système. Parmi les représentations les plus courantes, on mentionnera le {\it schéma fonctionnel} et le {\it graphe du système} dont les définitions sont données ci-dessous.
 
-\section{Schéma fonctionnel}
+\section{Function diagram}
 
-Le schéma fonctionnel d'un système dynamique est un graphe orienté 
-dont chaque noeud est constitué par l'un des deux blocs fonctionnels 
-représentés à la figure \ref{Fig:blocfonct}.
+The function diagram of a dynamic system is an oriented graph where each node is one of the two function blocks represented at the figure  \ref{Fig:blocfonct}.
 \begin{figure}[htbp] 
    \centering
    \includegraphics[width=10cm]{blocfonct} 
-   \caption{Blocs fonctionnels : (a) intégrateur, (b) fonction}
+   \caption{function blocks: (a) integrator, (b) function}
    \label{Fig:blocfonct}
 \end{figure}
 \begin{itemize}
-\item[$\bullet$] Le bloc fonctionnel Fig. \ref{Fig:blocfonct} 
-(a) représente un intégrateur dont la variable d'entrée est 
-la dérivée de la variable de sortie.
-\item[$\bullet$] Le bloc fonctionnel Fig. \ref{Fig:blocfonct} 
-(b) représente une fonction $f: \real^p \rightarrow \real$ dont la variable de 
-sortie $z(t)$ est une fonction des variables d'entrée~:
+\item[$\bullet$] The function block  Fig. \ref{Fig:blocfonct} 
+(a) represents an integrator where the input variable is the derivative of the output variable.
+\item[$\bullet$] The function block  Fig. \ref{Fig:blocfonct} 
+(b) represents a function  $f: \real^p \rightarrow \real$ where the output variable  $z(t)$ is a function of the input variables:
 \begin{equation*} \begin{split}
 z(t) = f(x_1(t), x_2(t), \dots , x_p(t)).
 \end{split} \end{equation*}
 \end{itemize}
-Dans certains cas, le dessin de ce bloc est particularisé de manière à rendre explicite la fonction qu'il représente. Trois exemples sont indiqués à la figure \ref{Fig:exblocfonct}.  Le schéma fonctionnel d'un système dynamique contient nécessairement $n$ intégrateurs dont les sorties sont les $n$ variables d'état du système. Ces intégrateurs sont interconnectés via des blocs fonctionnels représentant les différentes fonctions apparaissant dans les équations d'état. Les arcs du schéma fonctionnel s'interprêtent comme des lignes de transmission instantanée des variables qui leur sont attachées.
+In some cases, the drawing of this block is particularized in order to make explicit the function which it represents. Three examples are shown in the figure  \ref{Fig:exblocfonct}. The function diagram of a dynamic system contains necessarily $n$ integrators for which the outputs are the $n$ state variables of the system. These integrators are interconnected via function blocks representing the different functions appearing in the state equations. \textcolor{blue}{Function diagram’s arcs are interpreted as instant transmission of variables attached to them.}
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=55mm]{exblocfonct} 
-   \caption{Exemples de blocs fonctionnels : (a) sommateur, (b) multiplieur, (c) produit par une constante}
+   \caption{examples of function blocks: (a) adder, (b) multiplier, (c) product by a constant.}
    \label{Fig:exblocfonct}
 \end{figure}
 
-Outre leur intérêt pour l'analyse des systèmes dynamiques, les 
-schémas fonctionnels constituent aussi un outil fondamental de 
-programmation dans les langages standard de simulation dynamique 
-tels que MATLAB/Simulink ou VisSim.
+In addition to their importance for the analyze of the dynamic systems, function diagrams are also a programming fundamental tool in standard languages of dynamic simulation  MATLAB/Simulink or VisSim.
 
-\begin{exemple}{\bf \em Des algues dans la lagune (suite)}
+\begin{exemple}{\bf \em Algae in the lagoon (continuation)}
 
-Au chapitre 5, nous avons établi un modèle simple décrivant la dynamique de croissance d'une population d'algues dans une lagune. En supposant que la cinétique de croissance obéit à une loi bilinéaire $r(x_1,x_2) = x_1x_2$, ce modèle s'écrit~:
+In the previous chapter, we have established a simple model describing the growing process of an algae population in a lagoon. Assuming that the growing kinetic follows a bilinear law  $r(x_1,x_2) = x_1x_2$, this model is written:
 \begin{equation*} \begin{split}
 \dot x_1 &= -kx_1x_2 + u, \\
 \dot x_2 &= x_1x_2 - dx_2.
 \end{split} \end{equation*}
-Le schéma fonctionnel correspondant est représenté à la figure 
+The corresponding function diagram is represented at the figure 
 \ref{Fig:schema}. \qed
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=75mm]{schema} 
-   \caption{Schéma fonctionnel du modèle de croissance d'algues}
+   \caption{Function diagram of the algae growing model}
    \label{Fig:schema}
 \end{figure}
 \end{exemple}
 
-\section{Graphe d'un système dynamique}
+\section{Graph of a dynamic systeme}
 
-Le graphe d'un système dynamique est, d'une certaine manière, le graphe complémentaire du schéma fonctionnel. En effet, ce sont les variables d'état $x_i$ et les variables d'entrée $u_j$ qui sont attachées aux noeuds du graphe tandis que les arcs (orientés) représentent les relations fonctionnelles entre ces variables.
+The graph of a dynamic system is, in some way, the complementary graph of the function diagram. Indeed, nodes of the graph contain the state variables $x_i$ and the input variables $u_j$ while (oriented) arcs represent the functional relationship between these variables.
+ 
+The construction’s rules of a graph of a dynamic system are the following:
 
-Les règles de construction du graphe d'un système dynamique sont les suivantes~:
 \begin{enumerate}
-\item Le graphe contient $n+m$ noeuds étiquetés respectivement par les $n$ variables d'état $x_1, x_2, \dots , x_n$ et les $m$ variables d'entrée $u_1,u_2, \dots , u_m$.
-\item Il y a un arc orienté de $x_i$ vers $x_j$ (ou de $u_k$ vers $x_j$) si la variable $x_i$ (ou $u_k$) apparait explicitement dans l'équation de la dérivée $\dot x_j$.
+\item The graph contains $n + m$ nodes respectively labeled by the $n$ state variables  $x_1, x_2, \dots , x_n$ and the $m$ input variables  $u_1,u_2, \dots , u_m$.
+\item There is an oriented arc from $x_i$ to $x_j$ (or from $u_k$ to $x_j$)) if the variable $x_i$ (or $u_k$) appears explicitly in the equation of the derivative of  $\dot x_j$.
 \end{enumerate}
 \vv
 
-\begin{exemple}{\bf \em Machine électrique à courant continu}
+\begin{exemple}{\bf \em DC electrical machine}
 
-Considérons le modèle général d'une machine DC tel qu'il a été présenté au chapitre 3, section 3.5. C'est un système à quatre variables d'état et 3 variables d'entrée dont le modèle d'état s'écrit~:
+We consider the general model of a DC machine presented in chapter 3, section 3.5. It’s a system with four state variables and three input variables whose model state is written:
 \begin{equation*} \begin{split}
 \dot x_1 &= x_2, \\
 \dot x_2 &= J^{-1}( -h(x_2) + K_mx_3x_4 + u_3), \\
@@ -92,44 +87,42 @@ Considérons le modèle général d'une machine DC tel qu'il a été présenté 
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=65mm]{grafmot} 
-   \caption{Graphe du modèle d'état d'un moteur à courant continu}
+   \caption{graph of the state model of a DC engine}
    \label{Fig:grafmot}
 \end{figure}
-Le graphe de ce système est représenté à la figure \ref{Fig:grafmot}. \qed
+The graph of this system is represented at the figure \ref{Fig:grafmot}. \qed
 \end{exemple}
-Le graphe d'un système dynamique est un outil permettant de vérifier aisément si le système considéré possède des particularités structurelles intéressantes. Nous en verrons une illustration à la section \ref{triangulaire} lorsque nous étudierons les systèmes triangulaires.
 
-\section{Transformations linéaires d'état}
+The graph of a dynamic system is a tool to verify easily if the considered system has some interesting structural features. We will see an illustration in section \ref{triangulaire} when we will study triangular systems.
 
-Pour un système dynamique $\dot x = f(x,u)$, une transformation
-linéaire d'état est une application linéaire $T : \real^n
-\rightarrow \real^n$ bijective qui transforme l'état du système
-$x \in \real^n$ en un nouvel état $z \in \real^n$ selon la règle:
+\section{State linear transformation}
+
+For a dynamic system  $\dot x = f(x,u)$, a state linear transformation is a linear application  $T : \real^n
+\rightarrow \real^n$ which is bijective and transforms the state of the system 
+$x \in \real^n$ in a new state  $z \in \real^n$ following the rule:
 \eqnn
 z = Tx
 \eeqnn
-où $T$ est une matrice $(n \times n)$ régulière.
+where $T$ is a regular $(n \times n)$ matrix.
 
-Dans les nouvelles coordonnées $z$, le modèle d'état du
-système est transformé comme suit :
+In the new coordinates  $z$, the system’s state model is transformed as:
 \begin{equation*} \begin{split}
 \dot z = T \dot x = Tf(x,u)
 \end{split} \end{equation*}
-En exprimant que $x= T^{-1}z$ on obtient :
+Expressing that  $x= T^{-1}z$ we obtain :
 \eqnn
-\dot z = g(z,u) \hd \text{avec} \hd g(z,u) \triangleq T f(T^{-1} z,u).
+\dot z = g(z,u) \hd \text{with} \hd g(z,u) \triangleq T f(T^{-1} z,u).
 \eeqnn
-En particulier, un modèle d'état linéaire $\dot x = Ax + Bu$
-est transformé en un autre modèle linéaire :
+In particular, a linear state model  $\dot x = Ax + Bu$
+is transformed in another linear model:
 \eqnn
 \dot z = Fz + Gu \hd
-\text{avec} \hd F \triangleq TAT^{-1}, \;\;   G \triangleq TB.
+\text{with} \hd F \triangleq TAT^{-1}, \;\;   G \triangleq TB.
 \eeqnn
 
-\begin{exemple}{\bf \em Génératrice DC}
+\begin{exemple}{\bf \em DC generator}
 
-Au chapitre 3 (Section 3.6), nous avons établi le modèle d'état d'une
-génératrice à courant continu. Lorsque la génératrice tourne à vitesse constante $\omega$, le modèle d'état est linéaire et s'écrit
+At chapter 3 (Section 3.6.) we have established the state model of a DC generator. When the generator rotates at constant speed $\omega$, the state model is linear and is written:
 \eqnn
 \bpm
 \dot x_1\\ \dot x_2 \epm = 
@@ -138,32 +131,25 @@ génératrice à courant continu. Lorsque la génératrice tourne à vitesse con
 \dfrac{K_e \omega}{L_r} & - \dfrac{R_r + R_L}{L_r} \epm \bpm x_1\\x_2 \epm +
 \bpm \dfrac{1}{L_s} \\ \vm \\ 0 \epm u
 \eeqnn
-où les variables d'état $x_1$ et $x_2$ représentent respectivement les
-courants statorique et rotorique, tandis que l'entrée $u$ est la tension
-appliquée au 
-circuit statorique.
+where the state variables $x_1$ and $x_2$ represent respectively the stator and rotor current, while the input $u$ is the applied tension to the stator system. 
 
-Nous définissons de nouvelles variables d'état $z_1$ et $z_2$ qui peuvent
-être interprétées comme les flux magnétiques $\phi_s$ et $\phi_r$ auxquels
-sont soumis
-respectivement  les circuits statorique et rotorique :
+\textcolor{blue}{We define new state variables $z_1$ and $z_2$ which can be interpreted as magnetic flow $\phi_s$ and $\phi_r$ through the stator and rotor systems respectively:} 
 \begin{equation*} \begin{split}
 z_1 &= \phi_s = L_s x_1,\\
 z_2 &= \phi_r =  L_r x_2 + K_e x_1.
 \end{split} \end{equation*}
-On observe qu'il s'agit bien d'une transformation d'état linéaire :
+We see that it’s well a linear state transformation:
 \eqnn
 T = \bpm
 L_s & 0\\ K_e & L_r \epm.
 \eeqnn
-La matrice $T$ est inversible (det $T = L_s L_r >0$) et la transformation
-inverse s'écrit :
+The matrix $T$ is invertible  (det $T = L_s L_r >0$) the reverse transformation is written:
 \eqnn
 \bpm
 x_1 \\x_2 \epm = \bpm \dfrac{1}{L_s} &  0\\ & \vm \\-\dfrac{K_e}{L_sL_r} &
 \dfrac{1}{L_r} \epm \bpm z_1\\z_2 \epm.
 \eeqnn
-Dans les nouvelles coordonnées $(z_1, z_2)$, le modèle d'état s'écrit :
+In the new coordinates $(z_1,z_2)$, the state model is written:
 \begin{equation*} \begin{split} 
 \bma{c} \dot z_1 \\ \dot z_2 \ema &= \bma{lcc}-\dfrac{R_s}{L_s} & & 0\\ & & \\
 \dfrac{K_e\omega}{L_r} + \dfrac{K_e(R_r+R_L)}{L_r L_s}  - 
@@ -173,44 +159,42 @@ Dans les nouvelles coordonnées $(z_1, z_2)$, le modèle d'état s'écrit :
 \end{exemple} 
 \vv
 
-\begin{exemple}{\bf \em Modèles linéaires à compartiments}
+\begin{exemple}{\bf \em Compartments linear model}
 
-On s'intéresse ici aux modèles linéaires à compartiments tels que décrits à la section 4.4. Rappelons que la forme générale des équations d'état est la suivante~:
+We are interested in linear compartments models as described in the section 4.4. Remind that the general form of equations state is:
 \eqnn
 \dot x_i= \sum^n_{j=1} k_{ji} x_j - \sum^n_{\ell=0} k_{i\ell}x_i +b_iu_i, 
 \hspace*{10mm} i = 1,n
 \eeqnn
-ou sous forme matricielle~:
+or in matrix form:
 \eqnn
 \dot x = Ax + Bu
 \eeqnn
-avec $A$ une matrice de Metzler diagonalement dominante et $x_i$ la quantité totale contenue dans le compartiment $i$.
-
-On souhaite exprimer le modèle en termes de concentrations.  On introduit les notations :
+with $A$ a Metzler’s matrix diagonally dominant and $x_i$ the total amount contained in the compartment $i$. We want express the model in terms of concentrations. We introduce following notations:
 \begin{equation*} \begin{split}
-V_i &: \mbox{ volume du compartiment } i,\\
+V_i &: \mbox{ volume of compartment  } i,\\
 a_{ij} &\triangleq  k_{ij} V_i,\\
-z_i&= \frac{x_i}{V_i} : \mbox{ concentration dans le compartiment } i.
+z_i&= \frac{x_i}{V_i} : \mbox{concentration in the compartment } i.
 \end{split} \end{equation*}
-A l'aide de ces notations, on peut réécrire le modèle comme suit :
+With these notations, we can rewrite the model as :
 \begin{equation*} \begin{split}
 \dot x_i &= \sum^n_{j=1} \frac{a_{ji}}{V_j} x_j - \sum^n_{l=0}\frac{a_{il}}{V_i}x_i + b_i u_i,\\
 \dot x_i&= \sum^n_{j=1} a_{ji} z_j -\sum_{\ell=0}^n a_{i\ell} z_i + b_i u_i,
 \end{split} \end{equation*}
-et donc :
+and therefore :
 \eqnn
 \dot z_i = \sum^n_{j=1} \frac{a_{ji}}{V_i} z_j - \sum^n_{\ell=0} \frac{a_{i\ell}}{V_i} z_i + \frac{b_i}{V_i} u_i
 \eeqnn
-On a opéré ainsi une transformation d'état en passant des quantités  totales $x_i$ aux concentrations $z_i$ comme variables d'état.  Sous forme matricielle la transformation d'état s'écrit :
+We have done a state transformation converting the total amount $x_i$ to concentrations $z_i$ as state variables. In matrix form the state transformation is written:
 \eqnn
 z = V^{-1}x \mbox{ avec } V \triangleq \mbox{ diag} \{ V_i, i=1, \ldots, n \}
 \eeqnn
-Dans les coordonnées de concentration, le modèle devient :
+In the concentration coordinates, the model becomes:
 \eqnn
 \dot z = Fz + Gu
 \eeqnn
-avec $ F \triangleq V^{-1} AV$ et $ G \triangleq V^{-1} B$.  
-On peut vérifier que la matrice $F^T$ est aussi une matrice de Metzler diagonalement dominante.  \qed
+with $ F \triangleq V^{-1} AV$ et $ G \triangleq V^{-1} B$.  
+We can verify that the matrix $F^T$ is also a Metzler matrix diagonally dominant.  \qed
 \end{exemple}
 \vv
 
