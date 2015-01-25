@@ -299,76 +299,53 @@ A component in the reaction can also have a speed effect without being required 
 Such {\it activator} effect is modeled by adding an additional multiplicative term in the kinetic model.
 This term is an increasing function of the activator component concentration (which is non zero at start).
 
-\section{Perfectly mixed reactors}
+\section{Perfectly Stirred Tank Reactors}
 
-Perfectly mixed chemical or biological reactors form one of the most typical reaction system example.
-Reactors consists in a vessel containing a liquid reaction medium which is permanently mixed by an appropriate agitation system and has an homogeneous composition.
-The reactants can be provided to the reactor in liquid or gas state.
-Reaction products are formed in the reaction system.
-Some of these products can be easily gasified
-and freely escape from the reactor under their gas state.
-The reaction medium is removed from the reactor to collect the products.
+Perfectly stirred chemical or biological reactors are one of the most typical examples of reaction systems. These reactors are made of a tank containing a liquid reaction medium mixed permanently by a suitable agitation system. The composition of the tank is considered homogeneous. The various reagents can be provided to reactor in liquid or gaseous form. Reaction products are created in solution in the reaction medium. Some of these products can be  easily gasifiable and can freely escape from the reactor in gaseous form.
+The reaction medium is \blue{withdrawn} to collect products.
 
+\subsection {Continuous Reactors}
 
-\subsection {Réacteurs continus}
-
-Un réacteur parfaitement mélangé fonctionne en {\em mode continu} lorsque les
-débits d'alimentation et de soutirage sont ajustés de sorte que le volume $V$
-du milieu réactionnel soit constant. On parle alors d'un réacteur continu
-parfaitement mélangé (acronyme CSTR pour {\em
-continuous stirred tank reactor}). Un exemple de réacteur de ce type est
-représenté à la figure \ref{Fig:CSTR}. 
+A perfectly stirred tank reactor work in {\em continuous-flow mode} when feed and withdrawal rate are adapted so that the volume $V$ of the reaction medium is constant.
+This is called {\em continuous stirred tank reactor} (acronym CSTR).
+An example of this kind of reactor is illustrated in the figure \ref{Fig:CSTR}. 
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=6cm]{CSTR} 
-   \caption{Réacteur continu parfaitement mélangé}
+   \caption{Perferctly stirred tank reactor}
    \label{Fig:CSTR}
 \end{figure}
-Le réservoir est muni d'une canalisation d'alimentation et d'un dispositif de
-trop-plein de manière à maintenir le volume constant.
+The tank is fitted with a supply pipe and a suitable overflow to keep constant volume.
 
-On suppose que ce réacteur est le lieu d'un ensemble de $m$ réactions
-impliquant $n$ espèces chimiques $X_1, X_2, \dots , X_n$. Les concentrations
-des différentes espèces dans le milieu réactionnel sont notées  $x_i$. Les
-diverses espèces sont fournies au réacteur en solution ou en suspension dans
-le flux d'alimentation avec des concentrations notées $x_i^{in}$.
-Le débit volumétrique d'alimentation est noté $F_{in}$. Avec ces notations et
-définitions, les équations de bilan des différentes espèces dans le réacteur
-s'écrivent sous la forme matricielle suivante~:
+It is assumed this reactor is the place of a set of $m$ reactions involving $n$ chemical species $X_1, X_2, \dots , X_n$.
+The species concentrations in the reaction medium are noted $x_i$.
+The various species are supplied to reactor in solution or in suspension in the feed flow with concentrations noted $x_i^{in}$.
+The feed volumetric flow is noted $F_{in}$. With these notations and definitions, balance equation of the species in the reactor can be noted in the following matrix form:
 $$
 \dot xV = Cr(x)V - F_{in}x + F_{in}x^{in}
 $$
-où $C$ est la matrice stoechiométrique du réseau réactionnel, $r(x)$ le vecteur
-des vitesses de réactions, $x$ le vecteur des concentrations $x_i$ et $x^{in}$ le
-vecteur des concentrations d'alimentation $x_i^{in}$.
+where $C$ is the stoichiometric matrix of the reaction network, $r(x)$ the vector of reactions rates, $x$ the vector of concentrations $x_i$ and $x^{in}$ the vector of feed concentrations $x_i^{in}$.
 
-En définissant la variable
-d'entrée
+By defining the input variable
 $$ 
 u \triangleq \frac{F_{in}}{V}
 $$
-qui est le débit d'alimentation par unité de volume, appelé aussi {\em taux de
-dilution} (l'inverse du taux de dilution est le temps de séjour), on obtient le
-modèle d'état d'un réacteur continu parfaitement mélangé~:
+which is the feed rate per unit of volume, also called {\em \blue{dilution ratio}} (the inverse of dilution ratio is the \blue{retention time}), we get the state model of a perfectly stirred tank reactor:
 $$
 \dot x = Cr(x) - ux + ux^{in}. \label{CSTR}
 $$
-On observe que ce modèle possède la structure (\ref{sysrea}) avec les
-définitions suivantes~:
+It is observed this model has the structure (\ref{sysrea}) with the following definitions:
 $$
 q_{out}(x,u) = ux \hh \hh \hh q_{in}(x,u) = ux^{in}.
 $$
 
 \begin{exemple}{\blanc} \label{exempleCSTR}
 
-Nous considérons un réacteur chimique parfaitement mélangé dans lequel
-les deux réactions (\ref{exa}) se déroulent simultanément dans la
-phase liquide avec les cinétiques (\ref{cin}).     Le réacteur est
-alimenté par les deux réactifs initiaux $X_1$ et $X_2$ en solution avec des
-concentrations d'alimentation
-$x_1^{in}$ et $x_2^{in}$.
+We consider a perfectly stirred tank reactor in which the two reactions (\ref{exa}) run simultaneously
+in the liquid phase with kinetics (\ref{cin}). 
+The reactor is fed by the two initial reagents $X_1$ and $X_2$ in solution with feed concentrations $x_1^{in}$ and $x_2^{in}$.
 
-Le modèle d'état s'écrit
+The state model is written
 $$
 \bma{c} \dot x_1 \\ \dot x_2 \\ \dot x_3 \\ \dot x_4 \ema =
 \bma{cc} -1 & 0 \\ -1 & 0 \\ 2 & -2 \\ 0 & 1 \ema \bma{c}
@@ -376,360 +353,254 @@ k_1x_1x_2e^{-(Kx_4)} \\ k_2x_3^2 \ema
  + u \bma{c} x_1^{in} -x_1 \\ x_2^{in} -x_2 \\ -x_3 \\ -x_4
 \ema   
 $$
-où les variables d'état $x_1, x_2, x_3$ et $x_4$ représentent les
-concentrations des différentes espèces dans le milieu réactionnel. \qed
+where state variables $x_1, x_2, x_3$ and $x_4$ represent the concentrations of the species in the reaction medium. \qed
 \end{exemple}
 
-\subsection{Réacteurs à volume variable}
+\subsection{Reactor with Variable Volume }
 
-Considérons maintenant le réacteur représenté à la figure \ref{Fig:CSTR2}. Il est
-identique au précédent sauf que le trop-plein est remplacé par une canalisation
-de soutirage dont le débit volumétrique $F_{out}$ est contrôlé par
-une pompe. Dans le cas particulier où ce débit $F_{out}$ peut être nul par
-intermittence (pas de soutirage), on dit que le réacteur fonctionne en mode
-discontinu.
+Now, let's consider the reactor illustrated in the figure \ref{Fig:CSTR2}.
+It's the same as the previous one but the overflow is replaced by a withdrawal pipe, the volumetric flow $F_{out}$ of which is regulated with a pump. In the particular case where the flow rate $F_{out}$ may be intermittently zero (no withdraw), we say the reactor works in \blue{batch mode (discontinuous mode)}.
+
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=6cm]{CSTR2} 
-   \caption{Réacteur à volume variable}
+   \caption{Variable volume reactor}
    \label{Fig:CSTR2}
 \end{figure}
-L'équation matricielle de bilan massique des différentes espèces s'écrit
-maintenant comme suit~:
+
+The matrix equation of species mass balance is written as follows:
 $$
 \frac{d}{dt} (xV) = Cr(x)V - F_{out}x + F_{in}x^{in}.
 $$
-Le volume du milieu réactionnel peut varier si les débits d'alimentation et de
-soutirage sont différents. Les variations de volume sont décrites par l'équation de
-bilan volumétrique~:
+The reaction medium volume can vary if feed and withdrawal rate are different. The volume variations are described by the volumetric balance equation:
 $$
 \dot V = F_{in} -F_{out}.
 $$
-Si les deux débits volumétriques $F_{in}$ et $F_{out}$ sont
-choisis comme variables d'entrée $u_1$ et $u_2$, on obtient le modèle d'état
-suivant~: 
+If both volumetric rates $F_{in}$ and $F_{out}$ are chosen as input variables $u_1$ and $u_2$, we get the following state model:
 \begin{equation*} \begin{split}
 \dot x &= Cr(x) + \frac{u_1}{x_{n+1}} (x^{in} - x), \\
 \dot x_{n+1} &= u_1 - u_2,
 \end{split} \end{equation*}
-avec la variable d'état supplémentaire $x_{n+1}$ désignant le volume $V$.
+with the additional state variable $x_{n+1}$ referring the volume $V$.
 
-Il est intéressant de choisir les débits par unité de volume $u_1 =
-F_{in}/V$ et $u_2 = F_{out}/V$ comme variables d'entrée. Dans ce cas, le modèle
-d'état s'écrit
-\begin{equation*} \begin{split}
+It is interesting to choose flow rates by unit of volume $u_1 = F_{in}/V$ and $u_2 = F_{out}/V$ as input variables.
+In this case, the state model is written
+
+\begin{equation*} 
+\begin{split}
 \dot x = Cr(x) + u_1(x^{in} - x), \\
 \dot x_{n+1}= (u_1 - u_2)x_{n+1}.
-\end{split} \end{equation*}
-La première de ces deux équations décrit l'évolution de la
-composition du réacteur. Elle est indépendante de $u_2$ et $x_{n+1}$ et elle est
-identique à celle que nous avions obtenue pour un réacteur à volume constant
-(\ref{CSTR}). 
+\end{split} 
+\end{equation*}
 
-\subsection{Réacteurs non-isothermes}
+The first of this two equations describe the changes of the reactor composition. 
+This is independent of $u_2$ and $x_{n+1}$ and is identical to that we get for a reactor with a constant volume  (\ref{CSTR}). 
 
-La vitesse d'une réaction chimique dépend aussi de la
-température du milieu réactionnel. Jusqu'ici nous n'avons pas
-pris cette dépendance en compte dans la modélisation : nous
-avons implicitement supposé la température régulée à une
-température parfaitement constante. En l'absence d'une telle
-régulation, c'est la constante de vitesse qui dépend de la
-température et la forme générale de la vitesse de la j-ième
-réaction s'écrit
+\subsection{Non Isothermal Reactors}
+
+The rate of a chemical reaction also depends on the temperature of the reaction medium.
+Up to now we have not taken this dependence into account in modeling: it was implicitly assumed the temperature is regulated so we maintain a perfectly constant temperature.
+Absent such regulation, it is the rate constant which depends on the temperature. The general form of the speed of the $j$-th reaction is written
 $$
 r_j(x,T) = k_j(T)\rho_j(x)
 $$
-où $T$ désigne la température (en Kelvin) du milieu
-réactionnel et la fonction $\rho_j(x)$ satisfait les conditions de
-l'hypothèse (\ref{cond1})-(\ref{cond2}). La fonction $k_j(T)$ est
-positive, bornée et $k_j(0) = 0$. Un exemple typique est donné
-par la {\it loi d'Arrhenius} représentée à la figure
-\ref{Fig:arrhenius}~: \eqnn
+where $T$ stands for the temperature (in Kelvin) of the reaction medium and the function $\rho_j(x)$ satisfies the hypothesis conditions (\ref{cond1})-(\ref{cond2}). The function $k_j(T)$ is positive, bounded and $k_j(0) = 0$. A typical example is given by the {\it Arrhenius law} illustrated in the figure \ref{Fig:arrhenius}:
+\eqnn
 k_j(T) = k_{0j}exp(-\frac{E_j}{RT})
 \eeqnn
+
 \begin{figure}[htbp] 
    \centering
    \includegraphics[width=8cm]{arrhenius} 
-   \caption{Loi d'Arrhenius}
+   \caption{Arrhenius law}
    \label{Fig:arrhenius}
 \end{figure}
-où $k_{0j}$ est une constante, $E_j$ l'énergie d'activation de la
-réaction et $R$ la constante de Boltzmann. C'est une fonction
-monotone croissante et bornée de la température. Dans
-certaines applications (notamment en biotechnologie) la
-fonction $k_j$ peut aussi être non monotone.
 
-Le modèle d'état d'un réacteur non isotherme est obtenu en
-ajoutant une équation de bilan énergétique aux équations de
-bilan massique et volumique. A titre d'exemple, considérons un
-réacteur continu muni d'un échangeur de chaleur.
-L'équation de bilan énergétique s'écrit comme suit~:
+where $k_{0j}$ is a constant, $E_j$ the activation energy of the reaction and $R$ the Boltzmann constant.
+This function of the temperature is a monotonously increasing and bounded.
+In some applications (particularly in biotechnology) the function $k_j$ can also be monotonic.
+
+The state model of a non isothermal reactor is achieved by adding an energy balance equation to mass and volume balance equations. 
+For example, let's consider a continuous reactor equipped with a heat exchanger. 
+The energy balance equation is written as follows:
+
 $$
 \delta c_p V\dot T = (\sum_{j=1}^{m}\Delta H_j r_j(x,T))V +
 \delta c_p F_{in} (T_{in} - T) + Q
 $$
-où $\delta$ représente la densité du milieu réactionnel, $c_p$ la chaleur
-spécifique, $\Delta H_j$ la chaleur de réaction, $T_{in}$ la
-température du flux d'alimentation et $Q$ le flux de
-chaleur échangé. Si on suppose que les paramètres $\delta$,
-$c_p$ et $\Delta H_j$ sont constants, on obtient une équation
-de bilan thermique~: 
+where $\delta$ is the reaction medium density, $c_p$ the heat capacity, $\Delta H_j$ the reaction heat, $T_{in}$  the feed flow temperature and $Q$ the heat flow exchanged.
+If it is assumed the parameters $\delta$, $c_p$ and $\Delta H_j$ are constant, we get the heat balance equation: 
 $$ 
 \dot T = \sum_{j=1}^{m} h_j r_j(x,T) +
 d(T_{in} - T) + q
 $$
-où $h_j = \Delta H_j/c_p\delta V$ est la chaleur spécifique de
-réaction, $d = F_{in}/V$ est le taux de dilution et $q =
-Q/c_p \delta V$.
+where $h_j = \Delta H_j/c_p\delta V$ is the specific heat of reaction, $d = F_{in}/V$ is the dilution ratio and $q = Q/c_p \delta V$.
 
-Les paramètres $h_j$ peuvent être positifs ou négatifs. Si
-$h_j$ est négatif, la réaction en endothermique : elle
-consomme de la chaleur qui est apportée dans le réacteur par
-l'échangeur de chaleur. Si $h_j$ est positif, la réaction est
-exothermique : elle génère de la chaleur dans le réacteur qui
-doit être refroidi par l'échangeur de chaleur.
+The parameters $h_j$ can be positive or negative. 
+If $h_j$ is negative, the reaction is endothermic: it consumes heat provided by heat exchanger.
+If $h_j$ is positive, the reaction is exothermic: heat is generated and reactor has to be cooled by the heat exchanger.
 
-Le flux spécifique de chaleur échangée $q$ est lui même
-fonction de la température $T$. Un modèle simple 
-exprime que $q$ est proportionnel à la différence entre la
-température du réacteur $T$ et la température d'entrée de
-l'échangeur $T_w$~:
-$$ q = e(T_w - T). $$
-Dans ce cas, le modèle d'état global du réacteur s'écrit~:
+The specific heat flow exchanged $q$ is a function of the temperature $T$.
+A simple model is the statement $q$ is proportional to the difference between reactor and input temperature, respectively $T$ and $T_w$:
+$$ q = e(T_w - T) $$
+In this case, the global state model of the reactor is written:
 \begin{equation*} \begin{split}
 \dot x &= Cr(x) + d(x^{in} - x), \\
 \dot x_{n+1} &= h^T r(x) + d(T_{in} - x_{n+1}) + e(T_w - x_{n+1}).
 \end{split} \end{equation*}
-avec la variable d'état supplémentaire $x_{n+1}$ désignant la
-température $T$. Comme variables d'entrée, on peut choisir
-par exemple le taux de dilution $d$ et le coefficient de
-transfert thermique $e$ qui est proportionnel au débit de
-l'échangeur de chaleur.
+with the additive state variable $x_{n+1}$ referring temperature $T$.
+As input variables, we can choose, for example, the dilution ratio $d$ and the heat transfer coefficient $e$ which is proportional to the flow of the heat exchanger.
 
-\section{Les systèmes écologiques} 
+\section{Ecological Systems} 
 
-Le formalisme réactionnel et le
-modèle d'état (\ref{sysrea}) conviennent aussi pour la description
-d'une classe importante de systèmes écologiques (ou écosystèmes) dans
-lesquels des populations d'organismes vivants (végétaux ou animaux) se
-partagent un même habitat. 
+The reaction formalism and the state model (\ref{sysrea}) are also suitable to describe an important class of ecological systems (or ecosystem) in which populations of living organisms (vegetable or animal) share a same habitat.
 
-Le modèle mathématique d'un écosystème se présente comme un cas
-particulier de système réactionnel dans lequel~:
+The mathematical model of an ecosystem is presented as a particular case of reaction system in which:
+
 \begin{itemize}
-\item le réseau réactionnel décrit les interactions entre espèces :
-consommation de ressources inertes, pâturage sur des ressources
-végétales, prédation, etc.  Les réactions sont nécessairement
-autocatalytiques. 
-\item les flux d'entrée représentent la fourniture de ressources au
-système par des agents extérieurs et l'immigration de certaines espèces.
-\item les flux de sortie représentent l'émigration des espèces vers
-l'extérieur, la capture par des agents extérieurs (chasse, pêche, récolte,
-cueillette, \dots) ou simplement la mortalité naturelle des espèces.
+\item the reaction network describes interactions between species:
+ inert resource consumption, grazing on vegetable resource, predation, etc.
+ Reactions are necessarily  auto-catalytic.
+\item inflows represent the supply of resources to the system by external agent and immigration of some species.
+\item outflows represent emigration of species outwards, the capture by external agents (hunting, fishing, harvesting, gathering, \dots) or simply natural mortality in species. 
 \end{itemize}
 
-Nous commençons par un exemple simple.
+We begin with one simple example.
 
-\begin{exemple}{\bf \em Des algues dans la lagune}
+\begin{exemple}{\bf \em  Algae in the lagoon}
 
-Un nutriment organique provenant par exemple d'eaux ménagères
-résiduaires ou de fertilisants agricoles est déversé dans une lagune. Une
-population d'algues unicellulaires flottantes (phytoplancton) se développe
-à la surface de l'eau en se nourrissant de ce nutriment. Cette situation peut
-être schématisée par la réaction~:
+An organic nutrient coming for example from domestic waste water or agricultural fertilizer is released to the lagoon. 
+A population of floating single-celled algae (phytoplankton) grows on the surface water feeding on this nutrient. 
+This situation can be described  by the reaction:
 \eqn
 kY \longrightarrow X. \label{reacrois}
 \eeqn
-qui exprime que, dans le mécanisme de croissance des algues, le nutriment
-$Y$ est transformé en matière vivante (ou biomasse) $X$ avec un
-rendement $k^{-1}$. Comme tous les êtres vivants, les algues de la lagune
-peuvent aussi mourir.
+expressing that in the growing mechanism of algae, the nutrient $Y$ is transformed in living matter (or biomass) $X$ with a yield $k^{-1}$.
+Algae may also die as all living beings.
 
-La lagune peut dès lors être considérée comme un vaste réacteur qui
-transforme un réactif $Y$ (le nutriment) en un produit $X$ (la
-biomasse). Le réacteur est alimenté par un flux entrant de réactif (le
-nutriment déversé dans la lagune) tandis que la mortalité provoque un flux
-sortant de produit. Sous une hypothèse
-d'homogénéité spatiale, la dynamique de ce réacteur est décrite par
-le modèle d'état
+As consequence, the lagoon can be considered as a wide reactor transforming reagent $Y$ (the nutrient) in product $X$ (the biomass). The reactor is fed by a reagent inflow (the nutrient released to the lagoon) while mortality causes a product outflow. Under the spatial homogeneity assumption, dynamic of this reactor is described by the state model
+
 \begin{equation} \begin{split} \label{lagune}
 \dot y &= -kr(x,y) + v, \\
 \dot x &= r(x,y) - dx.
 \end{split} \end{equation}
-où $y$ représente la concentration en nutriment, $x$ la densité de la
-population d'algues, $v$ le débit (par unité de volume) d'alimentation de la
-lagune en nutriment, $dx$ la mortalité supposée proportionnelle à la
-densité de population (le coefficient $d$ est le taux spécifique de
-mortalité) et $r(x,y)$ la vitesse de réaction, c'est-à-dire ici la vitesse
-de croissance des algues. \qed
+
+where $y$ represent the nutrient concentration, $x$ the density of the algae population, $v$ the nutrient feed rate (per unit of volume) of the lagoon, $dx$ the assumed mortality proportional to the population density (coefficient $d$ is the specific mortality rate) and $r(x,y)$ the reaction speed, namely the growing speed of algae. \qed
 \end{exemple}
-D'un point de vue plus général, la réaction (\ref{reacrois}) peut
-représenter la croissance d'une population quelconque d'organismes vivants
-(végétaux ou animaux) $X$ qui, dans un habitat déterminé, consomme
-une ressource alimentaire $Y$. Cette ressource alimentaire peut être de
-la matière inerte (organique ou inorganique) comme dans l'exemple
-ci-dessus. Elle peut aussi être une autre espèce vivante (végétale ou animale) : on parle
-alors d'un modèle {\em proie - prédateur} dans lequel l'espèce ressource
-$Y$ est la proie et l'espèce consommatrice $X$ est le prédateur.
-D'évidence, cette réaction de croissance est autocatalytique puisque $X$
-représente nécessairement une population d'êtres vivants autoreproducteurs~: 
+
+From a broader standpoint, reaction (\ref{reacrois}) can represent the growing of any population of living organisms (vegetable or animal) $X$ that in a determined habitat, consumes a food resource $Y$.
+This food resource can be inert matter (organic or inorganic) as in the above example.
+It could also be another living species (vegetable or animal): this is called {\em prey - predator}  model in which resource species $Y$ is the prey and the consumer one is $X$ the predator.
+Obviously, this growing reaction is auto-catalytic because $X$ represent necessarily a population of self-reproductive living beings:
 \eqnn
 kY \cata{X} X.
 \eeqnn
-Il est dès lors naturel de considérer que la vitesse de croissance est
-proportionnelle à la densité de la population prédatrice et de représenter
-la fonction $r(x,y)$ par un modèle de la forme~:
+
+It is therefore natural for there to consider that the growth speed is proportional to the predator population density and to represent the function $r(x,y)$ with this kind of model:
 \eqnn
 r(x,y) \teq \mu(x,y)x
 \eeqnn
-où la fonction $\mu(x,y)$ est appelée {\em vitesse spécifique de
-croissance}. Cette fonction doit être définie de sorte que la vitesse de
-réaction vérifie les conditions (\ref{cond1}) - (\ref{cond2}), c'est-à-dire~:
+where the function $\mu(x,y)$ is called the {\em specific growth rate}.
+This function has to be defined so that the reaction rate verifies conditions (\ref{cond1}) - (\ref{cond2}), namely:
 \begin{itemize}
-\item $\mu(x,y)$ est une fonction positive définie sur l'orthant positif~:
+\item $\mu(x,y)$ is a positive definite function on the positive orthant:
 \eqnn
 \mu(x,y) \geq 0 \hh \hh \forall (x,y) \in \mathbb{R}_{+}^{2}.
 \eeqnn
-\item $\mu(x,0) = 0$ : il ne peut y avoir de croissance en l'absence de
-ressource alimentaire.
+\item $\mu(x,0) = 0$ : no food supply means no growth.
 \end{itemize}
-La vitesse spécifique de croissance peut dépendre de nombreux facteurs
-environnementaux. Deux effets non linéaires typiques sont l'effet de
-{\em satiété} et l'effet de {\em surpopulation}.
+The specific growth rate can depend on many environmental factors.
+Two typical non linear effects are {\em satiety} and {\em overpopulation} effects.
 \begin{description}
-\item[Effet de satiété :] Lorsque la ressource alimentaire est rare, on
-observe géné- ralement que la vitesse spécifique de croissance est une
-fonction croissante de la quantité de ressource disponible. Il existe
-cependant une limite physiologique à la vitesse de consommation
-de la ressource et donc à la vitesse de croissance. Ceci se
-modélise simplement en adoptant pour $\mu(x,y)$ une fonction
-croissante saturée par rapport à $y$, telle que la vitesse de croissance
-devient indépendante de $y$ au delà d'une concentration critique
-$y_{c}$~: 
+\item[Satiety effect: ] When food supply is scare, it is usually observed that the specific growth rate is an increasing function of available amount of supply.
+However it exists a physiological limit on the resource consumption rate and so on the growth rate.
+This can be modeled with $\mu(x,y)$ as an increasing saturated function of $y$, so that the growth speed is independent of $y$ beyond a critical concentration $y_c$:
 \eqnn
 \frac{\partial \mu(x,y)}{\partial y} \geq 0, \hspace{1cm}
 \mu(x,y) = \mu(x,y_{c}) \hh \hh \forall \hh y \geq y_{c}.
 \eeqnn
-\item[Effet de surpopulation :] Même quand la ressource alimentaire est
-surabondante, la densité de la population est généralement limitée par
-l'espace disponible. Ceci se modélise en imposant que la vitesse spécifique de
-croissance $\mu(x,y)$ soit une fonction décroissante de la densité $x$
-qui devient nulle quand la population atteint une valeur maximale $x_{m}$~:
+\item[Overpopulation effect:] Even when there is a food over-supply, the population density is usually limited by the available space. This can be modeled with $\mu(x,y)$ as a decreasing function of density $x$ which becomes zero when the population reaches its maximal value $x_m$:
  \eqnn
 \frac{\partial \mu(x,y)}{\partial x} \leq 0, \hspace{1cm}
 \mu(x,y) = 0 \hh \hh \forall \hh x \geq x_{m}.
 \eeqnn
 \end{description}
 
-\begin{exemple}{\bf Le modèle de Contois.}
-
-C'est un modèle classique de vitesse spécifique utilisé
-pour décrire la croissance de populations de micro-organismes~:
+\begin{exemple}{\bf The Contois model.}
+This is classic model of specific rate  used to describe the growth of micro-organisms populations:
 \eqnn
 \mu(x,y) = \frac{\mu_0 y}{y + Kx}.
 \eeqnn
-On observe que ce modèle est bien une fonction croissante bornée de $y$
-(identique, à $x$ fixé, au modèle de Michaelis-Menten) et
-décroissante (hyperbolique) de $x$. Cependant, les concentrations limites
-de satiété $y_{c}$ et de surpopulation $x_{m}$ sont rejetées à l'infini.  \qed
+It is observed this model is an increasing bounded function of $y$ (identical to the Michaelis-Menten model for $x$ fixed) and a decreasing (hyperbolic) function of $x$.
+\blue{However satiety and overpopulation concentration limits ($y_c$ and $x_m$ respectively) are rejected to infinity.}  \qed
 \end{exemple}
 
-\begin{exemple}{\bf Le modèle logistique}
+\begin{exemple}{\bf The logistic model}
 
-Il est courant d'adopter pour la vitesse spécifique de croissance une
-structure multiplicative de la forme~:
+It's common to adopt the following multiplicative structure for the specific growth rate:
 \eqnn
 \mu(x,y) = \sigma(y)\phi(x).
 \eeqnn
-Cette structure permet de modéliser séparément les effets de satiété et
-de surpopulation, par exemple de la manière suivante~:
+This structure allows to model separately satiety and overpopulation effects, for example in the following way:
 \begin{equation*} \begin{split} \sigma(y) &= \left\{\begin{array}{ll}
 \alpha y & \forall y \leq y_{c} \\ \alpha y_{c} & \forall y \geq y_{c} \end{array} \right.\\ \\
 \phi(x) &= 
 \left\{ \begin{array}{ll} (1 - \frac{x}{x_{m}}) & \forall x \leq x_{m} \\ 0  & \forall x \geq x_{m}
 \end{array} \right.
 \end{split} \end{equation*}
-On observe que les fonctions $\sigma$ et $\phi$ sont linéaires et
-saturées (voir figure  \ref{Fig:logistic}).
+It is noticeable that the functions $\sigma$ and $\phi$ are linear and saturated (see figure \ref{Fig:logistic}).
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=5cm]{logistic} 
-   \caption{Vitesse spécifique de croissance du modèle logistique}
+   \caption{Specific growth rate for th logistic model}
    \label{Fig:logistic}
 \end{figure}
-Avec ces définitions, le modèle proie-prédateur
-(\ref{lagune}) s'écrit, lorsque $y \leq y_{c}$ et $x \leq x_{m}$,
+With these definitions, when $y \leq y_{c}$ and $x \leq x_{m}$, the prey - predator model (\ref{lagune}) can be written as
 \begin{equation*} \begin{split}
 \dot y &= -k\alpha xy(1 - \frac{x}{x_{m}}) + v, \\
 \dot x &= \alpha xy(1 - \frac{x}{x_{m}}) - dx.
 \end{split} \end{equation*}
-Par contre, quand la ressource alimentaire est fournie au système en
-quantité suffisante pour en maintenir la concentration au dessus de sa
-valeur critique ($y(t) \geq y_{c} \hh \forall t$), alors la dynamique de
-la population prédatrice devient {\em indépendante de la quantité de
-ressource alimentaire disponible} et s'écrit simplement~:
+On the other hand, when the food supply is provided to the system  in sufficiently large quantities to maintain concentration above its critical value ($y(t) \geq y_{c} \hh \forall t$), then the dynamic of the predator population becomes {\em independent of the available amount of food supply} and can be written as:
 \eqn
 \dot x = \sigma_{c}x(1 - \frac{x}{x_{m}}) - dx  \label{logis}
 \eeqn
-où $\sigma_c = \alpha y_c$. La fonction $\phi(x) = (1 - x/x_{m})$ est généralement
-dénommée {\em modèle logistique} dans la littérature. Par extension, le
-modèle (\ref{logis}) est appelé modèle logistique de croissance d'une
-population sur une ressource alimentaire non limitante.   \qed
+where $\sigma_c = \alpha y_c$. The function $\phi(x) = (1 - x/x_{m})$ is usually called {\em logistic model} in the literature.
+By extension, the model (\ref{logis}) is called logistic model of a population growth on a non-limiting food supply. \qed
 \end{exemple}
 
-Nous avons considéré jusqu'ici un modèle simple ne faisant intervenir que
-deux espèces $X$ et $Y$. Cette description s'étend sans difficulté à
-des écosystèmes plus complexes dans lesquels plusieurs espèces
-biologiques, végétales ou animales, peuvent coexister et interagir au sein
-d'un même habitat. Voici un exemple.
+Up to now we have considered a simple model which only involves two species $X$ and $Y$.
+This description can be extended without difficulty to more complex ecosystems in which several biological species (vegetable or animal) can coexist and interact within the same habitat. Here is an example.
 
-\begin{exemple} {\bf Un écosystème aquatique}
+\begin{exemple} {\bf A aquatic ecosystem}
 
-Un écosystème aquatique, comme tout système écologique naturel, est
-géné-ralement caractérisé par la cohabitation de trois types
-d'espèces biologiques : des espèces végétales, des espèces
-animales herbivores et des espèces animales carnivores.  
+An aquatic ecosystem, as all other natural ecological system, is usually characterized by the cohabitation  of three kinds of biological species: vegetable,  herbivorous animal and carnivorous animal species.
 \begin{figure}[htbp] 
    \centering
    \includegraphics[height=5cm]{aquatic} 
-   \caption{Ecosystème aquatique}
+   \caption{Aquatic ecosystem}
    \label{Fig:aquatic}
 \end{figure}
-A titre d'exemple, considérons un étang (voir figure
-\ref{Fig:aquatic}) dans lequel est déversé un nutriment organique $X_1$.
-Un population d'algues (phytoplancton) $X_2$
-se développe par consommation de ce nutriment.  Une population de petits
-crustacés herbivores $X_3$ p\^ature sur le phytoplancton qui constitue sa
-ressource alimentaire principale. Une population de poissons carnivores $X_4$
-assure son développement et sa subsistance par la consommation des
-crustacés. La respiration animale consomme l'oxygène $X_5$ en solution
-dans l'eau produit par la photosynthèse. Cette description est
-schématisée par le réseau réactionnel suivant~:
+For example, let's us consider a pond (see figure \ref{Fig:aquatic}) in which is released an organic nutrient $X_1$.
+A population of algae (phytoplankton) $X_2$ grows by consumption of this nutrient.
+A population of tiny herbivorous crustaceans $X_3$ grazes on the phytoplankton which is its principal food supply.
+A population of carnivorous fish $X_4$ ensure its development and its growth by consumption of the crustaceans.
+The animal breathing consumes oxygen $X_5$ in the water produced by the photosynthesis .
+This description is represented by the following reaction network:
 \eqnn
 c_1X_1 &\cata{X_2}& X_2 + c_4X_5, \\
 c_2X_2 + c_5X_5 &\cata{X_3}& X_3, \\
 c_3X_3 + c_6X_5 &\cata{X_4}& X_4. 
 \eeqnn
-Un modèle d'état du système est établi sous les hypothèses de
-modélisation et avec les notations suivantes.
+A state model of this system is realized under the following hypothesis and with these notations:
 \begin{itemize}
-\item Le nutriment organique est déversé avec un débit par unité de
-volume $v$.
-\item les trois espèces biologiques sont sujettes à une mortalité
-naturelle. Les coefficients de mortalité sont notés $d_i, i = 2,3,4$.
-\item Les poissons sont de plus l'objet d'une pêche dont l'intensité est
-proportionnelle à la densité de la population. Le coefficient de
-proportionnalité est noté $d_1$. 
-\item La cinétique de croissance des
-algues est décrite par le modèle logistique, avec une dépendance de
-Michaelis Menten par rapport à la concentration en nutriment. 
-\item Les deux
-cinétiques de croissance des populations animales sont décrites par le
-modèle de Contois avec une dépendance de Michaelis Menten par rapport
-à la concentration en oxygène dissous. 
+\item The organic nutrient is released with a flow rate per unit of volume $v$.
+\item The three biological species are subject to natural mortality.
+The mortality coefficients are labeled $d_i, i = 2,3,4$.
+The coefficient of proportionality is noted $d_1$.
+\item The growth kinetic of algae is described by the logistic model, with a Michaelis Menten dependency to nutrient concentration
+\item Both kinetics of animal populations are described by the Contois model with a Michaelis Menten dependency to the oxygen concentration in the water.
 \end{itemize} 
-Le modèle d'état de
-cet écosystème aquatique s'écrit~: 
+The state model of this aquatic ecosystem is written as:
 \begin{equation*} \begin{split}
 \bma{c}  \dot x_1 \\ \dot x_2 \\
 \dot x_3 \\ \dot x_4 \\ \dot x_5 \ema &= \bma{ccc} -c_1 & 0 & 0\\ 1 & -c_2
@@ -749,10 +620,8 @@ x_5}}{{\textstyle x_5 +K_5}}
 \ema \bma{c} x_1 \\  x_2 \\  x_3 \\  x_4 \\ x_5 \ema + \bma{c} v \\ 0  \\ 0 \\
 0 \\ 0 \ema.    
 \end{split} \end{equation*}
-Les variables d'état
-$x_2,x_3,x_4$ désignent les densités des trois populations biologiques
-tandis que $x_1$ et $x_5$ désignent respectivement les concentrations en
-nutriment et en oxygène dissous. \qed
+The state variables $x_2,x_3,x_4$ denote the density of the three biological populations 
+while $x_1$ et $x_5$ denote respectively the nutrient and oxygen concentrations. \qed
 \end{exemple}
  
 \section{Exercices}
