@@ -359,135 +359,129 @@ If the function $f(x,u)$ is globally continuously differentiable and is globally
 We have to notice that this last theorem is quite restrictive.  There are in fact numerous dynamic systems for which the function $f(x,u)$ is not globally a Lipschitz function and yet own a global EBEB property.
 However, the exponential stability condition for the equilibrium is crucial.  Indeed, if the equilibrium is globally asymptotically stable but not globally exponentially stable, then the system (\ref{systnl}) is not necessarily EBEB stable, even if $f(x,u)$ is globally a Lipschitz function.
 
-\section{Exercices}
+\section{Exercises}
 
-\begin{exercice}{\bf Un réacteur chimique}
+\begin{exercice}{\bf A chemical reactor}
+Two chemical reactions in a liquid phase at constant volume that concern three chemical species X$_1$, X$_2$, X$_3$ are happening in a continuous reactor. The dynamic of the reactor is described by the following state model ($x_i$ is the concentration of X$_i$):
 
-Dans un réacteur continu se déroulent deux réactions chimiques en phase liquide à volume constant faisant intervenir trois espèces chimiques X$_1$, X$_2$, X$_3$. La dynamique du réacteur est décrite par le modèle d'état suivant ($x_i$ désigne la concentration de X$_i$):
 \begin{align*}
 \dot x_1 &= -x_1^2x_2 - dx_1 + du, \\
 \dot x_2 &= x_1^2x_2 - (d+k)x_2, \\
 \dot x_3 &= 2kx_2 - dx_3.
 \end{align*}
 \begin{enumerate}
-\item De quelles réactions s'agit-il ? (loi d'action des masses). 
-\item Dans l'orthant positif ($x_1 \geq 0$, $x_2 \geq 0$, $x_3 \geq 0$) déterminer le ou les équilibres pour  $\bar u > 0$. Indiquer combien il y a d'équilibres pour chaque valeur de $\bar u$ et expliciter les conditions d'existence. 
-\item Analyser la stabilité des équilibres par la première méthode de Lyapunov.
+\item What kind of reactions are they? (law of action of the masses)
+\item In the positive orthant ($x_1 \geq 0$, $x_2 \geq 0$, $x_3 \geq 0$) find the equilibrium(s) for $\bar u > 0$. How many equilibrium values are they for each value of $\bar u$? And what are the existence conditions?
+\item Analyse the stability of the equilibriums using the first method of Lyapunov.
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf Circuit RLC}
-
-Soit le circuit RLC parallèle illustré ci-dessous :
+\begin{exercice}{\bf RLC Circuit}
+Here is a parallel RLC circuit :
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=7cm]{RLC1}
 \end{center}
 \end{figure}
 
-\noindent La caractéristique courant-tension $i=g(v)$ de la résistance non-linéaire est une fonction monotone croissante telle que représentée sur la figure suivante~:
+\noindent The current-tension $i=g(v)$ caracteristic of the non-linear resistance is an increasing function such as represented on the following figure~:
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=4.8cm]{RLC2}
 \end{center}
 \end{figure}
 \begin{enumerate}
-\item Etablir un modèle d'état du système.
-\item Calculer les équilibres.
-\item En utilisant l'énergie comme fonction de Lyapunov, analyser la stabilité globale des équilibres par la seconde méthode de Lyapunov.
+\item Establish a state model of the system.
+\item Calculate the equilibriums
+\item Using the energy as a Lyapunov function, analyse the global stability of the equilibriums using the second method of Lyapunov.
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf Réacteur chimique}
+\begin{exercice}{\bf Chemical reactor}
 
-Soit un réacteur chimique de type CSTR où se produit la réaction suivante
+Granted is a chemical reactor of type CSTR where the following reaction is happening
 :
+
 $$
 X_1 + X_2 \longrightarrow 2X_2.
 $$
 
 \begin{enumerate}
-\item Etablir un modèle d'état sous les hypothèses de modélisation suivantes
+\item Establish a state model under the following modelisation hypothesis
 :\\
-- cinétique décrite par la loi d'action des masses\\
-- réacteur alimenté en $X_1$ uniquement ($x_{1,in} =$ cste)\\
-- le débit volumique d'alimentation est l'entrée.
-\item Montrer que ce système possède un équilibre dans l'orthant positif.
-\item Montrer que $V = x_1-\bar x_1 \ln x_1+x_2-\bar x_2 \ln x_2$ est une
-fonction de Lyapunov dans l'orthant positif.
-\item Démontrer que l'équilibre est globalement asymptotiquement stable dans
-l'orthant positif.
+- kinetic is described by the law of action of the masses\\
+- the reactor is alimented with $X_1$ only ($x_{1,in} =$ constant)\\
+- the volumetric feed rate is the input.
+\item Show that this system has an equilibrium in the positive orthant.
+\item Show that $V = x_1-\bar x_1 \ln x_1+x_2-\bar x_2 \ln x_2$ is a Lyapunov function in the positive orthant.
+\item Prove that the equilibrium is globally asymptotically stable in the positive orthant.
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf Système mécanique}
+\begin{exercice}{\bf A mechanical system}
 
-On considère un système mécanique à un degré de liberté.  La variable de
-position est $x_1$.  Ce système est soumis à une force dérivant d'un potentiel
-et à un frottement visqueux linéaire.
+We consider a mechanical system with one degree of liberty. The position variable is $x_1$. This system is subject to a force deriving from a potential and to a linear viscous friction.
 
-L'énergie potentielle est donnée par $$E_p(x_1) = \int^{x_1}_0 \dfrac{\sigma}{K +
+The potential energy is given by $$E_p(x_1) = \int^{x_1}_0 \dfrac{\sigma}{K +
 |\sigma|} d \sigma.$$\\
 
 \begin{enumerate}
-\item Etablir un modèle d'état du système.
-\item Calculer les équilibres.
-\item Analyser la stabilité des équilibres par la méthode directe de
-Lyapunov.
+\item Establish a state model of the system.
+\item Calculate the equilibriums.
+\item Analyse the stability of the equilibriums by the direct method of Lyapunov.
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice}{\bf Modélisation d'un neurone}
+\begin{exercice}{\bf Modelisation of a neuron}
 
-Le modèle de Naka-Rushton décrivant la dynamique d'un neurone dans la mémoire à court terme est donné par les équations d'état suivantes~:
+The model of Naka-Rushton describing the dynamic of a neuron in the short-term memory is given by the following state equations~:
+
 \eqnn
 \dot x_1 = - x_1 + \frac{u x_2}{1+x_2}, \\
 \dot x_2 = - x_2 + \frac{u x_1}{1+x_1}.
 \eeqnn
 \begin{enumerate}
-\item Montrer que le système est positif
-\item  Analyser l'existence et la stabilité des équilibres dans l'orthant positif (première méthode de Lyapunov).
-\item Pour $u$ constant, $0 < \bar u < 1$, montrer que toutes les trajectoires dans l'orthant positif convergent vers l'origine à l'aide de la fonction de Lyapunov $V = (1/2) (x_1^2 + x_2^2)$.
+\item Show that the system is positive
+\item Analyse the existence and the stability of the equilibriums in the positive orthant (first method of Lyapunov)
+\item For $u$ constant, $0 < \bar u < 1$, show that all the paths in the positive orthant converge to the origin using the Lyapunov function $V = (1/2) (x_1^2 + x_2^2)$.
 \end{enumerate}
 \end{exercice}
 \vv
 
-\begin{exercice} Soit le système dynamique :
+\begin{exercice} Here is a dynamic system :
 \eqnn
 \dot x_1 &=& -x_1+x_2,\\
 \dot x_2 &=& -x^3_1(1+u^2).
 \eeqnn
-Avec une fonction de Lyapunov de la forme
+With a Lyapunov function of the form
 $$V = ax^\alpha_1 + bx^\beta_2$$
-où $a, b, \alpha, \beta$ sont des constantes positives à
-déterminer, montrer que, pour toute entrée constante $u(t) = \bar u$, ce système possède un équilibre unique et
-globalement asymptotiquement stable.
+where $a, b, \alpha, \beta$ are positive constants to determine, show that for each constant input $u(t) = \bar u$, this system has a unique equilibrium and is globally asymptotically stable.
 \end{exercice}
 \vv
 
 \begin{exercice}
-Soit le systèmes dynamique :
+Here is a dynamic system :
 \begin{align*}
 \dot x_1 &= - \phi(x_1) + \phi(x_2), \\
 \dot x_2 &= \phi(x_1) - 2 \phi(x_2) + u.
 \end{align*}
-La fonction $\phi(x) : \RR \longrightarrow \RR$ possède les propriétés suivantes :\\
+The function $\phi(x) : \RR \longrightarrow \RR$ has the following properties :\\
 \begin{itemize}
-\item[a)] $\phi(x)$ est une bijection,\\
-\item[b)] $\phi(x)$ est $C^\infty$,\\
-\item[c)] $\phi(x)$ est strictement monotone croissante ($d\phi$/$dx$ $> 0$, $\forall x \in \RR$),\\
-\item[d)] $\phi(x)$ passe par l'origine ($\phi(0) = 0$).
+\item[a)] $\phi(x)$ is a bijection,\\
+\item[b)] $\phi(x)$ is $C^\infty$,\\
+\item[c)] $\phi(x)$ is strictly increasing ($d\phi$/$dx$ $> 0$, $\forall x \in \RR$),\\
+\item[d)] $\phi(x)$ passes through the origin ($\phi(0) = 0$).
 \end{itemize}
 \vspace{8mm}
-\noindent 1. Démontrer qu'il s'agit d'un système à compartiments. \\
+\noindent 1. Prove that it's a system with compartiments \\
 
-\noindent 2. Pour une entrée constante strictement positive ($\bar u > 0$), expliciter les conditions sous lesquelles le système possède un équilibre unique dans l'orthant positif.\\
+\noindent 2. For a constant stricly increasing input ($\bar u > 0$), explain the conditions under which the system hasa unique equilibrium in the positive orthant.\\
 
-\noindent 3. Démontrer que cet équilibre, s'il existe, est globalement asymptotiquement stable à l'aide de la fonction de Lyapunov
+\noindent 3. Show that this equilibrium, if it exists, is globally asymptotically stable using the function of Lyapunov
 \begin{equation*}
 V(x_1,x_2) = \int_{\bar x_1}^{x_1} (\phi(s) - \bar u) ds + \int_{\bar x_2}^{x_2} (\phi(s) - \bar u) ds.
 \end{equation*}
@@ -495,3 +489,4 @@ V(x_1,x_2) = \int_{\bar x_1}^{x_1} (\phi(s) - \bar u) ds + \int_{\bar x_2}^{x_2}
 \end{exercice}
 
 \end{document}
+

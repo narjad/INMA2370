@@ -10,188 +10,112 @@
 \graphicspath{ {Chapitre10/images/} }
 
 \setcounter{chapter}{9}
-\chapter{Commandabilité et planification de trajectoires}
+\chapter{Controllability and path planning}
 \chaptermark{Commandabilité et planification de trajectoires}\label{complantraj}
 
 
+\lettrine[lines=1]{\bf I}{}n the three precedents chapter, we have studied in detail the behavior of the {\it free} dynamic systems whose inputs are {\it constants}~: $\dot x = f(x,\bar u)$.
+In this last chapter, we will consider {\it controlled} dynamic systems $\dot x = f(x,u)$ and we will be particularly interested in the existence and determination of input functions $u(t)$ that can vary with time and that allow to pilot the state system and to plan paths.
 
-\lettrine[lines=1]{\bf D}{}ans les trois chapitres précédents, nous avons étudié en
-détail  le comportement des systèmes dynamiques {\it libres} 
-dont les entrées sont {\it constantes}~: $\dot x = f(x,\bar u)$.
-Dans ce dernier chapitre, nous allons considérer des systèmes
-dynamiques {\it commandés} $\dot x = f(x,u)$ et nous
-intéresser en particulier à l'existence et la détermination de
-fonctions d'entrées $u(t)$ pouvant varier au cours du temps et
-permettant de piloter le système dans l'espace d'état et d'en
-planifier les trajectoires.
+\section{Definitions}
 
-\section{Définitions}
+In practice, it often happens that we desire to pilot a dynamic system from an initial state $x_0$ to a final state $x_f$. This is what we call a {\it path planning problem}. In order to solve such a problem, there must exist at least one input function that products a path of the system that goes through the states $x_0$ and $x_f$.
 
-Dans la pratique, il arrive souvent que l'on désire conduire un
-système dynamique d'un état initial $x_0$ à un état final
-$x_f$.  C'est ce qu'on appelle un {\it problème de planification de trajectoire}. Pour résoudre un tel problème, il faut qu'il existe au
-moins une fonction d'entrée $u(t)$ produisant une trajectoire
-du système passant par les états $x_0$ et $x_f$.
-\begin{definition}{{\bf Etats atteignables}}
+\begin{definition}{{\bf Reachable states}}
 
-Pour le système dynamique $\dot x = f(x,u)$ , l'état final $x_f$ est atteignable à partir de l'état initial $x_0$ s'il existe un
-temps fini $T$ et une fonction d'entrée $u(t) : [t_0,t_0 +T]
-\rightarrow \mathbb{R}^n$ tels que $x(t_0+T,x_0,u) = x_f$. 
+For the dynamic system $\dot x = f(x,u)$, the final state $x_f$ is reachable from the initial state $x_0$ if there exists a finite time $T$ and an input function $u(t) : [t_0,t_0 +T]
+\rightarrow \mathbb{R}^n$ such as $x(t_0+T,x_0,u) = x_f$.
 \qed
 \end{definition} 
-Cette notion d'atteignabilité conduit au concept de commandabilité
-d'un système dynamique explicité dans
-la définition suivante.\\\\\\
+This notion of reachability leads to the concept of controllability of a dynamic system as explained in the following definition.\\\\\\
 
-\begin{definition}{{\bf Commandabilité}}
+\begin{definition}{{\bf Controllability}}
 
-Le système $\dot x = f(x,u)$ est {\it localement commandable} en $x_f$ s'il
-existe un voisinage de $x_f$ tel que $x_f$ soit atteignable à
-partir de chaque élément du voisinage.
+The system $\dot x = f(x,u)$ is {\it locally controllable} in $x_f$ if there exists a neighbourhood of $x_f$ such that $x_f$ is reachable from each element in the neighbourhood.
 
-Le système est {\it globalement 
-commandable} si tout état $x_f \in \mathbb{R}^n$ est atteignable à
-partir de tout état initial $x_0 \in \mathbb{R}^n$.
+The system is {\it globally controllable} if each state $x_f \in \mathbb{R}^n$ is reachable from each initial state $x_0 \in \mathbb{R}^n$.
 \qed
 \end{definition}
-L'objet de ce chapitre est d'étudier la commandabilité et la planification de trajectoires des systèmes dynamiques $\dot x = f(x,u)$. Comme nous le verrons, l'analyse de
-l'atteignabilité et de la commandabilité est totalement élucidée
-pour les systèmes linéaires alors qu'il reste de nombreuses
-questions ouvertes pour les systèmes non linéaires. D'autre
-part le problème de la planification des trajectoires est
-entièrement résolu pour les systèmes linéaires, alors qu'on n'en
-connait la solution que pour une classe restreinte de systèmes
-non linéaires que l'on appelle {\it systèmes (différentiellement)
-plats} et qui sont, en un certain sens, équivalents à des
-systèmes linéaires.
+The subject of this chapter is to study the controllability and the path planning of the dynamic systems $\dot x = f(x,u)$. As we will see, the analysis of the reachability and of the controllability is completely elucidated for linear systems though a lot of open questions remain for non-linear systems. On the other hand, the problem of path planning is completely solved for linear systems, while we only know the solution for a restricted class of non-linear systems that we call {\it (differentially) flat system} and that are, in a sense, equivalents to linear systems.
 
+\section{Controllability: linear systems}
 
-\section{Commandabilité : systèmes linéaires}
-
-Pour vérifier si un système linéaire $\dot x = Ax + Bu$ est
-complètement commandable, on peut utiliser l'un des deux critères
-donnés par le théorème suivant.
-\begin{theoreme} {\bf Commandabilité des systèmes linéaires}
+In order to check if a linear system $\dot x = Ax + Bu$ is completely controllable, we can use one of the two criterion given by the following theorem.
+\begin{theoreme} {\bf Controllability of linear systems}
 \label{linear}
 
-
-Le système linéaire $\dot x = Ax + Bu$ est complètement commandable
-si et seulement si l'un des deux critères équivalents suivants est
-satisfait~:
+The linear system $\dot x = Ax + Bu$ is completely controllable if and only if one of the two following criterion is satisfied~:
 \begin{enumerate}
-\item (Critère de Kalman) La matrice ${\cal C} = (B \hh AB \hh A^2B
-\dots A^{(n-1)}B)$ est ré-gulière (cette matrice est appelée {\it
-matrice de commandabilité}); 
-\item (Critère de Popov-Belevitch-Hautus) Le rang de la matrice $(sI-A \hh B)$
-est égal à $n$ pour tout $s \in {\mathbb {C}}$. \qed
+\item (Kalman's criterion) The matrix ${\cal C} = (B \hh AB \hh A^2B
+\dots A^{(n-1)}B)$ is regular (this matrix is called {\it controllability matrix});
+\item (Popov-Belevitch-Hautus's criterion) The rank of the matrix $(sI-A \hh B)$ is equal to $n$ for each $s \in {\mathbb {C}}$. \qed
 \end{enumerate}
 \end{theoreme}
-Si un système linéaire n'est pas complètement commandable, on peut
-définir une transformation d'état pour mettre la partie non
-commandable du vecteur d'état en évidence.
-
-Supposons que la matrice de commandabilité soit de rang $d < n$.  On
-définit une matrice $T = (T_a \hh T_b)$ telle que $T_a$ contienne $d$
-colonnes linéairement indépendantes de $\cal C$ et $T_b$ complète la
-matrice par $n-d$ vecteurs indépendants des colonnes de $T_a$. La
-matrice inverse $T^{-1}$ peut dès lors s'écrire~:
+If a linear system is not completely controllable, we can define a state transformation in order to bring the non-controllable part of the state vector out.\\
+Let's suppose that the controllability matrix is of rank $d < n$. We can define a matrix $T = (T_a \hh T_b)$ such that $T_a$ contains $d$ linearly independent columns of $\cal C$ and $T_b$ completes the matrix by $n-d$ vectors independent of the columns of $T_a$. The inverse matrix $T^{-1}$ can be written~:
 \eqnn
 T^{-1} = \bma{c} U_a \\ U_b \ema
 \eeqnn
-où les sous matrices $U_a$ et $U_b$ sont choisies telles que~:
+where the matrix $U_a$ and $U_b$ are chosen such so that~:
 \eqnn
 T^{-1}T = \bma{cc} U_aT_a & U_aT_b \\ U_bT_a & U_bT_b \ema = 
 \bma{cc} I_d & 0 \\ 0 & I_{n-d} \ema
 \eeqnn
-On définit la transformation d'état~:
+We define the state transformation~:
 \eqnn
 z = \bma{c} z_a \\ z_b \ema = \bma{c} U_ax \\ U_bx \ema
 \eeqnn
-Dans ces nouvelles variables d'état, on a le modèle d'état suivant~:
+In these new state variable, we have the following state model~:
 \eqnn
 \dot z_a &=& U_aAT_az_a + U_aAT_bz_b + U_aBu \\
 \dot z_b &=& U_bAT_bz_b
 \eeqnn
-En effet $U_bT_a=0$ implique que $U_bB = 0$ et $U_bAT_a=0$ car les colonnes de $B$ et de $AT_a$ sont des combinaisons linéaires des colonnes de $T_a$.
-On observe que la partie $z_b$ du vecteur d'état n'est pas influencée
-par l'entrée $u$~: elle représente la partie non commandable de l'état
-du système.
+Indeed $U_bT_a=0$ implies that $U_bB = 0$ and $U_bAT_a=0$ because the columns of $B$ and $AT_a$ are linear combinations of the columns of $T_a$.
+We notice thatthe part $z_b$ of the state vector isn't influenced by the input $u$~: it represents the non-controllable part of the system's state.
 
-\section{Commandabilité : systèmes non-linéaires}
+\section{Controllability: non-linear systems}
 
-L'étude de la commandabilité des systèmes non-linéaires est beaucoup
-plus compliquée que celle des systèmes linéaires. Nous commençons
-cette étude par l'examen des conclusions que l'on peut tirer de la
-commandabilité du linéarisé d'un système non-linéaire au voisinage d'un
-équilibre. 
-\begin{theoreme} {\bf Commandabilité locale (1)}\label{linear}
+The study of the controllability of non-linear systems is far more complicated that the one of linear systems. We begin this study by examining the conclusion that we can get from the controllability of a linearised of a non-linear system in the neighbourhood of an equilibrium.
 
+\begin{theoreme} {\bf Local controllability (1)}\label{linear}
 
-Considérons le linéarisé du système $\dot x = f(x,u)$ autour d'un
-équilibre $(\bar x, \bar u)$~:
+Let's consider the linearised of the system $\dot x = f(x,u)$ around an equilibrium $(\bar x, \bar u)$~:
 \eqn \label{lin}
 \dot x = Ax +Bu \hd
 \text{avec} \hd
 A = ({\frac{\partial f}{\partial x}})_{(\bar x, \bar u)} \;\; \text{et} \;\; B = 
 ({\frac{\partial f}{\partial u}})_{(\bar x, \bar u)}.
 \eeqn
-Si le système linéaire (\ref{lin}) est commandable, alors, pour tout
-$\epsilon > 0$, l'ensemble des états $x_f$ atteignables à partir de $\bar
-x$ avec des entrées $u(t)$ : $u(t) - \bar u < \epsilon$, contient un
-voisinage de $\bar x$.
+If the linear system (\ref{lin}) is controllable, then, for each $\epsilon > 0$, all of the reachable states $x_f$ from $\bar x$ with inputs $u(t)$ : $u(t) - \bar u < \epsilon$, contains one neighbourhood of $\bar x$.
 \qed
 
 \end{theoreme}
-Cette propriété locale de commandabilité des systèmes non-linéaires a
-une portée limitée. Comme nous allons le voir dans l'exemple suivant, il
-existe en effet des systèmes non-linéaires complètement
-commandables, dont le linéarisé n'est pas commandable au voisinage
-de l'équilibre !\\
+This local property of controllability of non-linear systems has a limited range. A we will se in the following example, there are indeed completely controllable non-linear systems whose linearised is not completely controllable in the neighbourhood of an equilibrium !\\
 
-\begin{exemple}{\bf Une voiture automobile} \label{voiture}
+\begin{exemple}{\bf A car} \label{voiture}
 
-Considérons une voiture automobile de type \og traction avant \fg~dont les roues avant sont à la fois motrices et directrices. Le modèle cinématique s'écrit~:
+Let's consider an \og FWD \fg~car whose front wheels are director and driving wheels. The cinematic model is written~:
 \eqnn
 \dot \xi_1 &=& \sin \theta_1 \cos \theta_2 u_1 \\
 \dot \xi_2 &=& -\cos \theta_1 \cos \theta_2 u_1 \\
 \dot \theta_1 &=& \sin \theta_2 u_1 \\
 \dot \theta_2 &=& u_2
 \eeqnn
-où $(\xi_1,\xi_2)$ désignent les coordonnées cartésiennes du milieu de
-l'essieu arrière, $\theta_1$ l'orientation du chassis, $\theta_2$
-l'orientation des roues avant, $u_1$ la vitesse de propulsion et
-$u_2$ la vitesse d'orientation des roues avant.
-
-Ce système possède une infinité d'équilibres non isolés de la forme
-$(\bar \xi_1, \bar \xi_2, \bar \theta_1,$ $\bar \theta_2, 0, 0)$. Les
-matrices $(A,B)$ du linéarisé du système autour d'un quelconque de ces
-équlibres s'écrivent~:
+where $(\xi_1,\xi_2)$ are the cartesian coordinates of the middle of the back axle, $\theta_1$ is the orientation of the chassis $\theta_2$ is the front wheel orientation, $u_1$ is the propulsion speed and $u_2$ is the speed of the front wheels.
+This system has an infinity of non-isolated equilibriums of the form $(\bar \xi_1, \bar \xi_2, \bar \theta_1,$ $\bar \theta_2, 0, 0)$. The matrices $(A,B)$ of the linearised of the system around any of these equilibrium are written~:
 \eqnn
 A = 0 \hu B = \bma{cc} \sin {\bar \theta_1} \cos {\bar \theta_2} & 0 \\
 -\cos {\bar \theta_1} \cos {\bar \theta_2} & 0 \\
 \sin {\bar \theta_2} & 0 \\ 0 & 1 \ema
 \eeqnn
-On observe immédiatement que le système linéarisé n'est pas
-commandable (rang ${\cal C} = 2$) alors que l'intuition physique indique à
-l'évidence qu'une voiture automobile est un système dynamique
-commandable qui, dans un environnement sans obstacle, peut être
-manoeuvré pour aller de n'importe quelle position initiale à n'importe
-quelle position finale.
+We notice immediately that the linearised system is not controllable (rank ${\cal C} = 2$) while the physical intuition obviously indicates that a car  is a controllable dynamic system which can be moved from any initial position to any final one in an obstacle-free environment.
 \qed
 
 \end{exemple}
 
-Comme l'indique cet exemple, un système non-linéaire peut posséder
-des propriétés de commandabilité qui ne sont pas apparentes dans le
-linéarisé. L'analyse de ces propriétés est facilitée par l'usage de
-concepts et de notations de géométrie différentielle qui sont
-brièvement résumés en annexe. Nous en commençons l'étude par la
-présentation d'une procédure qui permet, lorsqu'un système n'est {\textit {pas}} commandable, de mettre les variables d'état non-commandables
-en évidence.
+As this example indicates it, a non-linear system can have controllability properties that are not apparent in the linearised. The analysis of the properties is eased by the use of concepts and notations of differential geometry which are briefly explained in the appendices. We begin their study with the presentation of a procedure that allows to bring the state variables out when a system is {\textit{not}} controllable.
 
-Supposons que, pour un système $\dot x = f(x,u)$ donné, il existe une
-transformation d'état $z = \phi(x)$ telle que, dans les nouvelles
-variables d'état, le système s'écrive comme suit~:
+Let's suppose that for a given system $\dot x = f(x,u)$, there exists a state transformation $z = \phi(x)$ such that, in the newstate variables, the system can be written as following~:
 \eqnn
 z = \bma{c} z_a \\ z_b \ema \hu 
 \left \{
@@ -201,25 +125,21 @@ $\dot z_b = \tilde f_b(z_b)$
 \end{tabular}
 \right.
 \eeqnn
-Il est clair, dans ce cas, que la partie $z_b$ du vecteur d'état n'est pas
-influencée par l'entrée $u$ et que le système n'est donc pas
-commandable. En voici un exemple simple.
+It is clear, in this case that the part $z_b$ of the state vector isn't influenced by the input $u$ and that the system isn't completely controllable. Here is a simple example.
 
-\begin{exemple}{\bf Un réacteur chimique}
+\begin{exemple}{\bf A chemical reactor}
 
-Considérons un réacteur chimique isotherme et parfaitement mélangé
-dans lequel se déroule la réaction réversible~:
+Let's consider an isotherm chemical reactor that is perfectly mixed in which the following reversible reaction is happening~:
 \eqnn
 2X_1 \longleftrightarrow X_2 + X_3 
 \eeqnn
-Le réacteur est alimenté par l'espèce $X_1$ avec un débit volumétrique
-constant et une concentration variable. Le modèle d'état s'écrit~:
+The reactor is alimented by the specie $X_1$ with a constant volumetric flow rate and a variable concentration. The state model is written~: 
 \eqnn
 \dot x_1 &=& -2k_1x_1^2 + 2k_2x_2x_3 - dx_1 + du \\
 \dot x_2 &=& k_1x_1^2 - k_2x_2x_3 - dx_2 \\
 \dot x_3 &=& k_1x_1^2 - k_2x_2x_3 - dx_3
 \eeqnn
-Soit la transformation d'état linéaire~:
+Granted is the following linear state transformation~:
 \eqnn
 \begin{tabular}{lcl}
 $z_1 = x_1$ &  & $x_1 = z_1$ \\
@@ -227,52 +147,43 @@ $z_2 = x_2$ & $\longleftrightarrow$  & $x_2 = z_2$ \\
 $z_3 = x_2 - x_3 $ &  & $x_3 = z_2 - z_3$ 
 \end{tabular}
 \eeqnn
-Dans les nouvelles variables d'état, le modèle se réécrit~;
+With the new state variables, the model is rewritten~;
 \eqnn
 \dot z_1 &=& -2k_1z_1^2 + 2k_2z_2(z_2 - z_3) - dz_1 + du \\
 \dot z_2 &=& k_1z_1^2 - k_2z_2(z_2 - z_3) - dz_2 \\
 \dot z_3 &=& -dz_3
 \eeqnn
-Le système n'est donc pas commandable car les trajectoires de $z_3$
-(qui est la différence entre les concentrations des espèces $X_2$ et
-$X_3$) ne peuvent être influencées par l'entrée $u$ (qui est la
-concentration d'alimentation de l'espèce $X_1$).
+The system is not completely controllable because the paths of $z_3$ (which is the difference between the concentrations of the species $X_2$ and $X_3$) can not be influenced by the input $u$ (which is the alimentation concentration of the specie $X_1$.
 \qed
 
 \end{exemple}
-Une condition suffisante d'existence d'une partie non-commandable de
-l'état est donnée dans le théorème suivant pour les systèmes affines
-en l'entrée~:
+A sufficient existence condition of the non-controllable part of the state is given in the following theorem for affine systems in the input~:
 \eqn
 \dot x = f(x) + \sum_{j=1}^m g_j(x)u_j \label{affine}
 \eeqn
 \begin{theoreme}
 
-
-Si, dans un voisinage $U$ d'un point $x_0$, il existe une distribution
-$\Delta(x)$ régulière de dimension $d$ telle que~:
+If, in the neighbourhood $U$ of a point $x_0$, there exists one regular distribution $\Delta(x)$ of dimension $d$ such that~:
 \begin{enumerate}
-\item $\Delta(x)$ est involutive
-\item $\Delta(x)$ contient $\mbox{ span} \{ g_1(x), g_2(x), \dots
+\item $\Delta(x)$ is involutive
+\item $\Delta(x)$ contains $\mbox{ span} \{ g_1(x), g_2(x), \dots
 ,g_m(x)\}$
-\item $\Delta (x)$ est invariante par rapport à $f(x)$ et $g_1(x), g_2(x), \dots
+\item $\Delta (x)$ is invariant with respect to $f(x)$ and $g_1(x), g_2(x), \dots
 ,g_m(x)$,
 \end{enumerate}
-alors il existe une transformation d'état $\phi : U \longrightarrow
-V=\phi(U)$ telle que, dans les nouvelles variables d'état $z=\phi(x)$, le
-système (\ref{affine}) se réécrit~:
+then there exists a state transformation $\phi : U \longrightarrow
+V=\phi(U)$ such that, with the new state variables $z=\phi(x)$, the system (\ref{affine}) is rewritten~:
 \eqnn
 \dot z_a &=& \tilde f_a(z_a, z_b) +  \sum_{j=1}^m \tilde g_j(z_a,
 z_b)u_j\\ \dot z_b &=& \tilde f_b(z_b) 
 \eeqnn
-avec dim $z_b = (n-d)$.
+with dim $z_b = (n-d)$.
 \qed
 
 \end{theoreme}
-Le théorème suivant permet alors de déterminer la plus petite
-distribution $\Delta^*(x)$ qui vérifie les conditions ci-dessus et
-donc de déterminer la dimension maximum de la partie
-non-commandable. 
+The following theorem allows then to determine the smaller distribution $\Delta^*(x)$ that verifies the upper conditions and that allows to determine the maximum dimension of the non-controllable part.
+
+\begin{theoreme} \label{procedure}
 
 \begin{theoreme} \label{procedure}
 
